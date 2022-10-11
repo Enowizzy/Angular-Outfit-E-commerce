@@ -1,16 +1,57 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BannerSliderComponent } from './components/banner-slider/banner-slider.component';
+import { ShopWithUsComponent } from './components/shop-with-us/shop-with-us.component';
+import { PhotoBannerComponent } from './components/photo-banner/photo-banner.component';
+import { VideoBannerComponent } from './components/video-banner/video-banner.component';
+import { EcommerceMainComponent } from './components/ecommerce-main/ecommerce-main.component';
+import { ContentBannerComponent } from './components/content-banner/content-banner.component';
+import { LatestPostComponent } from './components/latest-post/latest-post.component';
+import { CustomerPostComponent } from './components/customer-post/customer-post.component';
+import { SubscriptionComponent } from './components/subscription/subscription.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { RegisterComponent } from './components/register/register.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { AboutComponent } from './components/about/about.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { HomeComponent } from './components/home/home.component';
+import { HeaderComponent } from './components/header/header.component';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BannerSliderComponent,
+    ShopWithUsComponent,
+    PhotoBannerComponent,
+    VideoBannerComponent,
+    EcommerceMainComponent,
+    ContentBannerComponent,
+    LatestPostComponent,
+    CustomerPostComponent,
+    SubscriptionComponent,
+    FooterComponent,
+    RegisterComponent,
+    routingComponents,
+    ContactComponent,
+    AboutComponent,
+    NavbarComponent,
+    PageNotFoundComponent,
+    HomeComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

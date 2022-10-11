@@ -1,0 +1,77 @@
+<section class="w3l-banner-slider-main inner-pagehny">
+  <div class="breadcrumb-infhny">
+
+    <div class="top-header-content">
+
+      <app-header></app-header>
+      <div class="breadcrumb-contentnhy">
+        <div class="container">
+          <nav aria-label="breadcrumb">
+            <h2 class="hny-title text-center">Contact Us</h2>
+            <ol class="breadcrumb mb-0">
+              <li><a routerLink="/">Home</a>
+                <span class="fa fa-angle-double-right"></span>
+              </li>
+              <li class="active">Contact</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- contacts -->
+<section class="w3l-contacts-8">
+  <div class="contacts-9 section-gap py-5">
+    <div class="container py-lg-5">
+      <div class="row top-map">
+        <div class="col-lg-5 partners">
+          <div class="cont-details">
+            <h3 class="hny-title mb-0">Get in <span>touch</span></h3>
+            <p class="mb-5">We're ready to lead you into the future with Business Services</p>
+            <p class="margin-top"><span class="texthny">Call Us : </span> <a href="tel:+(255)
+              524 460 123">+(255)
+                524 460 123</a></p>
+            <p> <span class="texthny">Email : </span> <a href="mailto:enock.yona01@gmail.com">
+                enock.yona01@gmail.com</a></p>
+            <p class="margin-top"> Majengo Street,
+              Singida-Tanzania </p>
+          </div>
+          <div class="hours">
+            <h3 class="hny-title">Working <span>Hours</span></h3>
+            <h6>Business Service:</h6>
+            <p> Monday to Friday 8.00 am - 6.00 pm</p>
+            <h6 class="margin-top">Customer support:</h6>
+            <p> Monday to Friday 8.00 am - 6.00 pm</p>
+            <p> Saturday 10.00 am - 4.00 pm</p>
+            <p> Sunday - Closed</p>
+          </div>
+        </div>
+        <div class="col-lg-7 map">
+          <div class="map-content-9 form-bg-img">
+            <div class="layer section-gap py-5">
+              <div class="container py-lg-5">
+                <div class="form">
+                  <h3 class="hny-title two text-center">Fill out the form.</h3>
+                  <form (ngSubmit)="storeContact()">
+                    <div class="input-grids">
+                      <input type="text" name="name" [(ngModel)]="user.name" placeholder="Name" required="">
+                      <input type="email" name="email" [(ngModel)]="user.email"  placeholder="Email" required="" />
+                      <input type="subject" name="subject" [(ngModel)]="user.subject"  placeholder="Subject" required="">
+                    </div>
+                    <div class="input-textarea">
+                      <textarea name="message" [(ngModel)]="user.message"  placeholder="Message" required=""></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+<!-- //contacts -->

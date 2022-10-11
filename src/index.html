@@ -1,13 +1,129 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
-  <title>Angular14App</title>
+  <title>Jeedie Outfit-E-commerce</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+
+  <!-- Start New Inserted-->
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="assets/css/style-starter.css">
+  <!-- Template CSS -->
+  <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,900&display=swap" rel="stylesheet">
+  <!-- Template CSS -->
+  <!-- End New Inserted-->
+
 </head>
+
 <body>
+
   <app-root></app-root>
+
+  <!-- Start New Inserted-->
+  <script src="assets/js/jquery-3.3.1.min.js"></script>
+  <script src="assets/js/jquery-2.1.4.min.js"></script>
+
+  <!--/login-->
+  <script>
+    $(document).ready(function () {
+      $(".button-log a").click(function () {
+        $(".overlay-login").fadeToggle(200);
+        $(this).toggleClass('btn-open').toggleClass('btn-close');
+      });
+    });
+    $('.overlay-close1').on('click', function () {
+      $(".overlay-login").fadeToggle(200);
+      $(".button-log a").toggleClass('btn-open').toggleClass('btn-close');
+      open = false;
+    });
+  </script>
+  <!--//login-->
+
+  <script>
+    // optional
+    $('#customerhnyCarousel').carousel({
+      interval: 3000
+    });
+  </script>
+  <!-- cart-js -->
+  <script src="assets/js/minicart.js"></script>
+  <script>
+    transmitv.render();
+
+    transmitv.cart.on('transmitv_checkout', function (evt) {
+      var items, len, i;
+
+      if (this.subtotal() > 0) {
+        items = this.items();
+
+        for (i = 0, len = items.length; i < len; i++) { }
+      }
+    });
+  </script>
+  <!-- //cart-js -->
+  <!--pop-up-box-->
+  <script src="assets/js/jquery.magnific-popup.js"></script>
+  <!--//pop-up-box-->
+  <script>
+    $(document).ready(function () {
+      $('.popup-with-zoom-anim').magnificPopup({
+        type: 'inline',
+        fixedContentPos: false,
+        fixedBgPos: true,
+        overflowY: 'auto',
+        closeBtnInside: true,
+        preloader: false,
+        midClick: true,
+        removalDelay: 300,
+        mainClass: 'my-mfp-zoom-in'
+      });
+
+    });
+  </script>
+  <!--//search-bar-->
+  <!-- disable body scroll which navbar is in active -->
+
+  <script>
+    $(function () {
+      $('.navbar-toggler').click(function () {
+        $('body').toggleClass('noscroll');
+      })
+    });
+  </script>
+  <!-- disable body scroll which navbar is in active -->
+  <script src="assets/js/bootstrap.min.js"></script>
+
+  <!-- move top -->
+
+  <script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {
+      scrollFunction()
+    };
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("movetop").style.display = "block";
+      } else {
+        document.getElementById("movetop").style.display = "none";
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+  </script>
+  <!-- /move top -->
+  
+  <!-- End New Inserted-->
+
 </body>
+
 </html>
