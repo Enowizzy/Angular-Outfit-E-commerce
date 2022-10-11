@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Contact } from './models/contact.model';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +7,4 @@ import { Contact } from './models/contact.model';
 })
 export class AppComponent {
   title = 'angular-14-app';
-  contact = new Contact();
 }
