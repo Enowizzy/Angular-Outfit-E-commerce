@@ -22,36 +22,40 @@
 </section>
 
 <!-- contacts -->
-<section class="w3l-contacts-8" >
+<section class="w3l-contacts-8">
   <div class="contacts-9 section-gap py-5">
     <div class="container py-lg-5">
       <div class="row top-map">
         <div class="col-lg-9 partners">
 
-            <div class="container">
-              <h2 style="text-align: center;">Contact Received:</h2>
-              <p style="text-align: center;">The below fees contacts may be subjected to changes as it may deem
-                necessary. So
-                please keep in touch with this website to notice any changes that may be made:</p>
-              <table class="table table-dark table-hover">
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Subject</th>
-                    <th>Message</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let contactData of contactDatas">
-                    <td>{{ contactData.name }}</td>
-                    <td>{{ contactData.email }}</td>
-                    <td>{{ contactData.subject }}</td>
-                    <td>{{ contactData.message }}</td>
-                  </tr>
-                </tbody>
-              </table>
+          <div class="container">
+            <h2 style="text-align: center;">Contact Received:</h2>
+            <p style="text-align: center;">The below contacts may be subjected to changes as it may deem
+              necessary. So
+              please keep in touch with this website to notice any changes that may be made:</p>
+            <table class="table table-dark table-hover" *ngIf="contactDatas">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Subject</th>
+                  <th>Message</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let contactData of contactDatas">
+                  <td>{{ contactData.name }}</td>
+                  <td>{{ contactData.email }}</td>
+                  <td>{{ contactData.subject }}</td>
+                  <td>{{ contactData.message }}</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="alert alert-info" *ngIf="!contactDatas">
+              <strong>Sorry there is no contacts yet !</strong> Make one <a routerLink="/contact"
+                class="alert-link">here</a>.
             </div>
+          </div>
         </div>
       </div>
     </div>
