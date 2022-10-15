@@ -19,7 +19,16 @@ export class ContactComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.contactData1 = this.contactData.getContactData();
+      /** spinner starts on init */
+      this.spinner.show();
+
+      this.contactData1 = this.contactData.getContactData();
+
+      setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+      }, 1000);
+    
   }
 
   getContact() {
