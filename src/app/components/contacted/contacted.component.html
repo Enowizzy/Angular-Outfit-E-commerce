@@ -1,0 +1,60 @@
+<section class="w3l-banner-slider-main inner-pagehny">
+  <div class="breadcrumb-infhny">
+
+    <div class="top-header-content">
+
+      <app-header></app-header>
+      <div class="breadcrumb-contentnhy">
+        <div class="container">
+          <nav aria-label="breadcrumb">
+            <h2 class="hny-title text-center">Contact Us</h2>
+            <ol class="breadcrumb mb-0">
+              <li><a routerLink="/">Home</a>
+                <span class="fa fa-angle-double-right"></span>
+              </li>
+              <li class="active">Contacted</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- contacts -->
+<section class="w3l-contacts-8" >
+  <div class="contacts-9 section-gap py-5">
+    <div class="container py-lg-5">
+      <div class="row top-map">
+        <div class="col-lg-9 partners">
+
+            <div class="container">
+              <h2 style="text-align: center;">Contact Received:</h2>
+              <p style="text-align: center;">The below fees contacts may be subjected to changes as it may deem
+                necessary. So
+                please keep in touch with this website to notice any changes that may be made:</p>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Subject</th>
+                    <th>Message</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let contactData of contactDatas">
+                    <td>{{ contactData.name }}</td>
+                    <td>{{ contactData.email }}</td>
+                    <td>{{ contactData.subject }}</td>
+                    <td>{{ contactData.message }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- //contacts -->

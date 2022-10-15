@@ -23,6 +23,7 @@ import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import { ContactedComponent } from './components/contacted/contacted.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import {FormsModule} from '@angular/forms';
     NavbarComponent,
     PageNotFoundComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    ContactedComponent
   ],
   imports: [
     BrowserModule,

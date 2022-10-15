@@ -3,11 +3,11 @@ import { Contact } from 'src/app/models/contact.model';
 import { ContactService } from 'src/app/services/contact.service';
 
 @Component({
-  selector: 'app-contact',
-  templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css'],
+  selector: 'app-contacted',
+  templateUrl: './contacted.component.html',
+  styleUrls: ['./contacted.component.css']
 })
-export class ContactComponent implements OnInit {
+export class ContactedComponent implements OnInit {
   contactData1: any;
   contactDatas: any;
   user = new Contact();
@@ -16,6 +16,7 @@ export class ContactComponent implements OnInit {
 
   ngOnInit(): void {
     this.contactData1 = this.contactData.getContactData();
+    this.getContact();
   }
 
   getContact() {
@@ -33,6 +34,7 @@ export class ContactComponent implements OnInit {
         this.target =
           '<div class="alert alert-danger">Error!' + res.message + '</div>';
       }
+      this.getContact();
     });
   }
 }
