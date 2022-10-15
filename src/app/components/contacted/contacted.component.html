@@ -40,6 +40,7 @@
                   <th>Email</th>
                   <th>Subject</th>
                   <th>Message</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -48,12 +49,22 @@
                   <td>{{ contactData.email }}</td>
                   <td>{{ contactData.subject }}</td>
                   <td>{{ contactData.message }}</td>
+                  <td>
+                    <span type="button" class="btn btn-info" title="View"><i class="fa fa-eye-slash"
+                        aria-hidden="true"></i></span>
+                    <span type="button" class="btn btn-warning" title="Edit"><i class="fa fa-pencil-square-o"
+                        aria-hidden="true"></i></span>
+                    <span type="button" class="btn btn-danger" title="Delete"><i class="fa fa-trash"
+                        aria-hidden="true"></i></span>
+                  </td>
                 </tr>
               </tbody>
             </table>
-            <div class="alert alert-info" *ngIf="!contactDatas">
-              <strong>Sorry there is no contacts yet !</strong> Make one <a routerLink="/contact"
-                class="alert-link">here</a>.
+            <div class="alert alert-danger" *ngIf="!contactDatas">
+              <p><strong>Oops! No contacts made yet.</strong></p>
+              <p>A few things might help:</p>
+              <p>1. Make contacts <a routerLink="/contact" class="alert-link">here</a></p>
+
             </div>
           </div>
         </div>
