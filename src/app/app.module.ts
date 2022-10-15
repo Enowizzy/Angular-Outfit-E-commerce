@@ -24,6 +24,8 @@ import { HeaderComponent } from './components/header/header.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { ContactedComponent } from './components/contacted/contacted.component';
+import { NgxSpinnerModule } from "ngx-spinner";
+import {  CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 
 @NgModule({
   declarations: [
@@ -49,12 +51,14 @@ import { ContactedComponent } from './components/contacted/contacted.component';
     ContactedComponent
   ],
   imports: [
-    BrowserModule,
     FormsModule,
+    BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    NgxSpinnerModule,
     BrowserAnimationsModule
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]
 })

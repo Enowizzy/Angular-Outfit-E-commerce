@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Contact } from 'src/app/models/contact.model';
 import { ContactService } from 'src/app/services/contact.service';
 
@@ -12,7 +13,10 @@ export class ContactComponent implements OnInit {
   contactDatas: any;
   user = new Contact();
   target: string = '';
-  constructor(private contactData: ContactService) {}
+  constructor(
+    private contactData: ContactService,
+    private spinner: NgxSpinnerService
+  ) {}
 
   ngOnInit(): void {
     this.contactData1 = this.contactData.getContactData();
@@ -24,7 +28,11 @@ export class ContactComponent implements OnInit {
     });
   }
   storeContact() {
+    this.spinner.show();
     this.contactData.storeContactData(this.user).subscribe((res: any) => {
+      setTimeout(() => {
+        this.spinner.hide();
+      }, 1000);
       this.contactDatas = res;
       if (res.code == 1) {
         this.target =
