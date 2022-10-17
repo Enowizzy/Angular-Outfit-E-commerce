@@ -22,7 +22,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ContactedComponent } from './components/contacted/contacted.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import {  CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
@@ -56,6 +56,7 @@ import {  CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
     HttpClientModule,
     AppRoutingModule,
     NgxSpinnerModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

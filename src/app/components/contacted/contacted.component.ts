@@ -12,9 +12,11 @@ export class ContactedComponent implements OnInit {
   contactDatas: any;
   user = new Contact();
   target: string = '';
-  constructor(private contactData: ContactService) {}
+  constructor(private contactData: ContactService
+    ) {}
 
   ngOnInit(): void {
+   
     this.contactData1 = this.contactData.getContactData();
     this.getContact();
   }
