@@ -14,4 +14,7 @@ export class UserService {
   register(data: any) {
     return this._httpRequest.post(this.API_URL + 'register', data);
   }
+  login(data: any) {
+    return this._httpRequest.post(this.API_URL + 'login', data);
+  }
 }

@@ -40,7 +40,6 @@ export class RegisterComponent implements OnInit {
   });
 
   onSubmit() {
-    console.log(this.registrationForm.value);
     this.spinner.show();
     this.registerData.register(this.registrationForm.value).subscribe((res: any) => {
       setTimeout(() => {
