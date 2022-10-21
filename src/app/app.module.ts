@@ -26,6 +26,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ContactedComponent } from './components/contacted/contacted.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import {  CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import {  CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
     PageNotFoundComponent,
     HomeComponent,
     HeaderComponent,
-    ContactedComponent
+    ContactedComponent,
+    LoginComponent
   ],
   imports: [
     FormsModule,
