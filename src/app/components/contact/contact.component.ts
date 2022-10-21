@@ -15,7 +15,7 @@ export class ContactComponent implements OnInit {
   target: string = '';
   constructor(
     private contactData: ContactService,
-    private spinner: NgxSpinnerService
+    public spinner: NgxSpinnerService
   ) {}
 
   ngOnInit(): void {

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +9,9 @@ import {
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-  
+  target: string = '';
+  registerDatas: any;
+
   get first_name() {
     return this.registrationForm.get('first_name');
   }
@@ -23,7 +24,11 @@ export class RegisterComponent implements OnInit {
   get password() {
     return this.registrationForm.get('password');
   }
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    public spinner: NgxSpinnerService,
+    private registerData: UserService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -36,5 +41,19 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     console.log(this.registrationForm.value);
+    this.spinner.show();
+    this.registerData.register(this.registrationForm.value).subscribe((res: any) => {
+      setTimeout(() => {
+        this.spinner.hide();
+      }, 1000);
+      this.registerDatas = res;
+      if (res.code == 1) {
+        this.target =
+          '<div class="alert alert-success">Success!' + res.message + '</div>';
+      } else if (res.code == 2) {
+        this.target =
+          '<div class="alert alert-danger">Error!' + res.message + '</div>';
+      }
+    });
   }
 }
