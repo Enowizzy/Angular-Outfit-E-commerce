@@ -11,25 +11,42 @@
                         <div class="col-md-6 col-lg-7 d-flex align-items-center">
                             <div class="card-body p-4 p-lg-5 text-black">
 
-                                <form>
+                                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
                                     <div class="d-flex align-items-center mb-3 pb-1">
                                         <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
                                         <span class="h1 fw-bold mb-2">Sign In</span>
                                     </div>
 
-                                    <div class="form-outline mb-4">
-                                        <input type="email" placeholder="Email address" id="form2Example17"
-                                            class="form-control form-control-lg" />
+                                    <div class="form-group mb-4">
+                                        <input [class.is-invalid]="email?.invalid && email?.touched"
+                                            formControlName="email" type="email" class="form-control p_input"
+                                            placeholder="Email">
+                                        <div *ngIf="email?.invalid && email?.touched">
+                                            <small *ngIf="email?.hasError('required')" class="text-danger">Email is
+                                                required</small>
+                                            <small *ngIf="email?.hasError('email')" class="text-danger">String must be
+                                                type
+                                                email</small>
+                                        </div>
                                     </div>
-
-                                    <div class="form-outline mb-4">
-                                        <input type="password" placeholder="Password" id="form2Example27"
-                                            class="form-control form-control-lg" />
+                                    <div class="form-group mb-4">
+                                        <input [class.is-invalid]="password?.invalid && password?.touched"
+                                            formControlName="password" type="password" class="form-control p_input"
+                                            placeholder="Password">
+                                        <div *ngIf="password?.invalid && password?.touched">
+                                            <small *ngIf="password?.hasError('required')" class="text-danger">Password
+                                                is
+                                                required</small>
+                                            <small *ngIf="password?.hasError('minlength')" class="text-danger">Password
+                                                must be
+                                                at least 8 characters</small>
+                                        </div>
                                     </div>
 
                                     <div class="pt-1 mb-4">
-                                        <button class="btn btn-dark btn-lg btn-block" type="button">Login</button>
+                                        <button [disabled]="loginForm.invalid" class="btn btn-dark btn-lg btn-block"
+                                            type="submit">Login</button>
                                     </div>
 
                                     <a class="small text-muted" href="#!">Forgot password?</a>
