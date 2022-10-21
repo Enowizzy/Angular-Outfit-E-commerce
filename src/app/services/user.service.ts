@@ -18,7 +18,6 @@ export class UserService {
   login(data: any) {
     return this._httpRequest.post(this.API_URL + 'login', data);
   }
-
   create(data: any): Observable<any> {
     return this._httpRequest.post(this.API_URL + 'login', data);
   }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { UserService } from 'src/app/services/user.service';
 
@@ -27,7 +28,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     public spinner: NgxSpinnerService,
-    private registerData: UserService
+    private registerData: UserService,
+    private route: Router
   ) {}
 
   ngOnInit(): void {}
@@ -49,6 +51,8 @@ export class RegisterComponent implements OnInit {
       if (res.code == 1) {
         this.target =
           '<div class="alert alert-success">Success!' + res.message + '</div>';
+          this.route.navigate(['/']);
+
       } else if (res.code == 2) {
         this.target =
           '<div class="alert alert-danger">Error!' + res.message + '</div>';

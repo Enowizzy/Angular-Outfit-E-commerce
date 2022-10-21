@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Contact } from 'src/app/models/contact.model';
 import { ContactService } from 'src/app/services/contact.service';
@@ -14,6 +15,7 @@ export class ContactComponent implements OnInit {
   user = new Contact();
   target: string = '';
   constructor(
+    private route: Router,
     private contactData: ContactService,
     public spinner: NgxSpinnerService
   ) {}
@@ -45,6 +47,8 @@ export class ContactComponent implements OnInit {
       if (res.code == 1) {
         this.target =
           '<div class="alert alert-success">Success!' + res.message + '</div>';
+          this.route.navigate(['/contacted']);
+
       } else if (res.code == 2) {
         this.target =
           '<div class="alert alert-danger">Error!' + res.message + '</div>';
