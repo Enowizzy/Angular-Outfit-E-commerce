@@ -26,10 +26,10 @@ export class RegisterComponent implements OnInit {
     return this.registrationForm.get('password');
   }
   constructor(
+    private route: Router,
     private fb: FormBuilder,
-    public spinner: NgxSpinnerService,
     private registerData: UserService,
-    private route: Router
+    public spinner: NgxSpinnerService,
   ) {}
 
   ngOnInit(): void {}
