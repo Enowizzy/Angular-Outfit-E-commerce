@@ -27,8 +27,7 @@ import { ContactedComponent } from './components/contacted/contacted.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import {  CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { LoginComponent } from './components/login/login.component';
-import { ViewContactsComponent } from './admin/components/view-contacts/view-contacts.component';
-import { AdminRoutingComponents, AdminRoutingModule } from './admin/admin-routing.module';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -45,7 +44,6 @@ import { AdminRoutingComponents, AdminRoutingModule } from './admin/admin-routin
     FooterComponent,
     RegisterComponent,
     routingComponents,
-    AdminRoutingComponents,
     ContactComponent,
     AboutComponent,
     NavbarComponent,
@@ -54,15 +52,14 @@ import { AdminRoutingComponents, AdminRoutingModule } from './admin/admin-routin
     HeaderComponent,
     ContactedComponent,
     LoginComponent,
-    ViewContactsComponent,
   ],
   imports: [
     FormsModule,
+    AdminModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     NgxSpinnerModule,
-    AdminRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule
   ],
