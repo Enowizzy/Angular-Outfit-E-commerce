@@ -54,8 +54,8 @@ import { AdminModule } from './admin/admin.module';
     LoginComponent,
   ],
   imports: [
-    FormsModule,
     AdminModule,
+    FormsModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
