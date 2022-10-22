@@ -27,6 +27,7 @@ import { ContactedComponent } from './components/contacted/contacted.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import {  CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { LoginComponent } from './components/login/login.component';
+import { ViewContactsComponent } from './admin/components/view-contacts/view-contacts.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { LoginComponent } from './components/login/login.component';
     HomeComponent,
     HeaderComponent,
     ContactedComponent,
-    LoginComponent
+    LoginComponent,
+    ViewContactsComponent
   ],
   imports: [
     FormsModule,
