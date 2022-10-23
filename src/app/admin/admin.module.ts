@@ -6,19 +6,19 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NgxSpinnerModule } from "ngx-spinner";
 import {  CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { ViewContactsComponent } from './components/view-contacts/view-contacts.component';
-import { AdminComponent } from './admin/admin.component';
 import { AdminRoutingComponents, AdminRoutingModule } from './admin-routing.module';
 import { TopNavbarComponent } from './components/top-navbar/top-navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { AdminHomeComponent } from './components/admin-home/admin-home.component';
 
 
 @NgModule({
   declarations: [
-    AdminComponent,
     ViewContactsComponent,
     AdminRoutingComponents,
     TopNavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    AdminHomeComponent
   ],
   imports: [
     FormsModule,
@@ -31,6 +31,6 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
-  bootstrap: [AdminComponent]
+  bootstrap: [AdminHomeComponent]
 })
 export class AdminModule { }
