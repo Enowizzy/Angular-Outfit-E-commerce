@@ -21,15 +21,7 @@ export class ContactComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    /** spinner starts on init */
-    this.spinner.show();
-
     this.contactData1 = this.contactData.getContactData();
-
-    setTimeout(() => {
-      /** spinner ends after 5 seconds */
-      this.spinner.hide();
-    }, 1000);
   }
 
   getContact() {
@@ -47,14 +39,11 @@ export class ContactComponent implements OnInit {
       if (res.code == 1) {
         this.target =
           '<div class="alert alert-success">Success!' + res.message + '</div>';
-          this.route.navigate(['/contacted']);
-
+        this.route.navigate(['/contacted']);
       } else if (res.code == 2) {
         this.target =
           '<div class="alert alert-danger">Error!' + res.message + '</div>';
       }
     });
   }
-
-
 }

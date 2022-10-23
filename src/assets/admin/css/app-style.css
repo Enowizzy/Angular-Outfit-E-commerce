@@ -401,7 +401,7 @@ hr {
   border: 0px solid black;
 }
 
-#theme1 {
+/* #theme1 {
   background-image: url(../images/bg-themes/1.png);
   background-size: 100% 100%;
   background-position: center;
@@ -436,7 +436,7 @@ hr {
   background-size: 100% 100%;
   background-position: center;
   transition: background .3s;
-}
+} */
 #theme7 {
   background-image: linear-gradient(45deg, #0c675e, #069e90);
   background-size: 100% 100%;
@@ -494,7 +494,7 @@ hr {
   transition: background .3s;
 }
 
-body.bg-theme1 {
+/* body.bg-theme1 {
   background-image: url(../images/bg-themes/1.png);
 }
 body.bg-theme2 {
@@ -511,7 +511,7 @@ body.bg-theme5 {
 } 
 body.bg-theme6 {
   background-image: url(../images/bg-themes/6.png);
-}
+} */
 body.bg-theme7 {
   background-image: linear-gradient(45deg, #0c675e, #069e90);
 } 
@@ -2998,7 +2998,7 @@ table.grid td {
 [class*="icheck-material"] {
   min-height: 22px;
   margin-top: 6px;
-  margin-bottom: 6px 
+  margin-bottom: 6px; 
   padding-left: 0px; }
   [class*="icheck-material"] > label {
     padding-left: 29px !important;
