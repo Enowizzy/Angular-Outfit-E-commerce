@@ -2,7 +2,6 @@ import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminHomeComponent } from './components/admin-home/admin-home.component';
 import { AdminComponent } from './components/admin/admin.component';
-import { TopNavbarComponent } from './components/top-navbar/top-navbar.component';
 import { ViewContactsComponent } from './components/view-contacts/view-contacts.component';
 
 const routes: Routes = [
@@ -29,6 +28,5 @@ const routes: Routes = [
 export class AdminRoutingModule {}
 export const AdminRoutingComponents = [
   ViewContactsComponent,
-  TopNavbarComponent,
   AdminHomeComponent
 ];
