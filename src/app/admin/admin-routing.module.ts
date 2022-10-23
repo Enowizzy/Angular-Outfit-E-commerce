@@ -1,21 +1,22 @@
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminHomeComponent } from './components/admin-home/admin-home.component';
+import { AdminComponent } from './components/admin/admin.component';
 import { TopNavbarComponent } from './components/top-navbar/top-navbar.component';
 import { ViewContactsComponent } from './components/view-contacts/view-contacts.component';
 
 const routes: Routes = [
   {
     path: 'admin',
-    component: AdminHomeComponent,
+    component: AdminComponent,
     children: [
+      {
+        path: '',
+        component: AdminHomeComponent,
+      },
       {
         path: 'view-contact',
         component: ViewContactsComponent,
-      },
-      {
-        path: 'top-navbar',
-        component: TopNavbarComponent,
       },
     ],
   },
@@ -29,4 +30,5 @@ export class AdminRoutingModule {}
 export const AdminRoutingComponents = [
   ViewContactsComponent,
   TopNavbarComponent,
+  AdminHomeComponent
 ];

@@ -10,6 +10,10 @@ import { AdminRoutingComponents, AdminRoutingModule } from './admin-routing.modu
 import { TopNavbarComponent } from './components/top-navbar/top-navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { AdminHomeComponent } from './components/admin-home/admin-home.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { ContentWrapperComponent } from './components/content-wrapper/content-wrapper.component';
+import { RightSidebarComponent } from './components/right-sidebar/right-sidebar.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -18,7 +22,11 @@ import { AdminHomeComponent } from './components/admin-home/admin-home.component
     AdminRoutingComponents,
     TopNavbarComponent,
     SidebarComponent,
-    AdminHomeComponent
+    AdminHomeComponent,
+    AdminComponent,
+    ContentWrapperComponent,
+    RightSidebarComponent,
+    FooterComponent
   ],
   imports: [
     FormsModule,
@@ -31,6 +39,6 @@ import { AdminHomeComponent } from './components/admin-home/admin-home.component
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
-  bootstrap: [AdminHomeComponent]
+  bootstrap: [AdminComponent]
 })
 export class AdminModule { }
