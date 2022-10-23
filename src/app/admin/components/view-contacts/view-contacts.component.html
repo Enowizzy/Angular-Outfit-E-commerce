@@ -1,85 +1,58 @@
-<body class="bg-theme bg-theme1">
+<div class="content-wrapper">
+    <div class="container-fluid">
 
-    <!-- Start wrapper-->
-    <div id="wrapper">
-
-        <!--Start sidebar-wrapper-->
-        <app-sidebar></app-sidebar>
-        <!--End sidebar-wrapper-->
-
-        <!--Start top bar header-->
-        <app-top-navbar></app-top-navbar>
-        <!--End top bar header-->
-
-        <div class="clearfix"></div>
-
-        <div class="content-wrapper">
-            <div class="container-fluid">
-
-                <div class="row mt-5">
-                    <div class="col-lg-9">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title" style="text-align: center;">Contacts Made</h5>
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Name</th>
-                                                <th scope="col">Email</th>
-                                                <th scope="col">Subject</th>
-                                                <th scope="col">Message</th>
-                                                <th scope="col">Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr *ngFor="let contactData of contactDatas">
-                                                <td>{{ contactData.name }}</td>
-                                                <td>{{ contactData.email }}</td>
-                                                <td>{{ contactData.subject }}</td>
-                                                <td>{{ contactData.message }}</td>
-                                                <td>
-                                                    <span type="button" class="btn btn-info" title="View"><i
-                                                            class="fa fa-eye-slash" aria-hidden="true"></i></span>
-                                                    <span type="button" class="btn btn-warning ml-2" title="Edit"><i
-                                                            class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
-                                                    <span type="button" class="btn btn-danger ml-2" title="Delete"><i
-                                                            class="fa fa-trash" aria-hidden="true"></i></span>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="alert alert-danger" *ngIf="!contactDatas">
-                                <p><strong>Oops! No contacts made yet.</strong></p>
-                                <p>A few things might help:</p>
-                                <p>1. Make contacts <a routerLink="/contact" class="alert-link">here</a></p>
-                                <p>2. Server Error</p>
-                            </div>
+        <div class="row mt-5">
+            <div class="col-lg-9">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title" style="text-align: center;">Contacts Made</h5>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Subject</th>
+                                        <th scope="col">Message</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let contactData of contactDatas">
+                                        <td>{{ contactData.name }}</td>
+                                        <td>{{ contactData.email }}</td>
+                                        <td>{{ contactData.subject }}</td>
+                                        <td>{{ contactData.message }}</td>
+                                        <td>
+                                            <span type="button" class="btn btn-info" title="View"><i
+                                                    class="fa fa-eye-slash" aria-hidden="true"></i></span>
+                                            <span type="button" class="btn btn-warning ml-2" title="Edit"><i
+                                                    class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+                                            <span type="button" class="btn btn-danger ml-2" title="Delete"><i
+                                                    class="fa fa-trash" aria-hidden="true"></i></span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
+                    <div class="alert alert-danger" *ngIf="!contactDatas">
+                        <p><strong>Oops! No contacts made yet.</strong></p>
+                        <p>A few things might help:</p>
+                        <p>1. Make contacts <a routerLink="/contact" class="alert-link">here</a></p>
+                        <p>2. Server Error</p>
+                    </div>
                 </div>
-                <!--End Row-->
-
-                <!--start overlay-->
-                <div class="overlay toggle-menu"></div>
-                <!--end overlay-->
-
             </div>
-            <!-- End container-fluid-->
-
         </div>
-        <!--End content-wrapper-->
+        <!--End Row-->
 
-
-        <!--Start footer-->
-        <app-footer></app-footer>
-        <!--End footer-->
-
-        <!--start color switcher-->
-        <app-right-sidebar></app-right-sidebar>
-        <!--end color switcher-->
+        <!--start overlay-->
+        <div class="overlay toggle-menu"></div>
+        <!--end overlay-->
 
     </div>
-    <!--End wrapper-->
+    <!-- End container-fluid-->
+
+</div>
+<!--End content-wrapper-->

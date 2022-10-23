@@ -1,1 +1,27 @@
-<router-outlet></router-outlet>
+<body class="bg-theme bg-theme1">
+
+    <!-- Start wrapper-->
+    <div id="wrapper">
+
+        <!--Start sidebar-wrapper-->
+        <app-sidebar></app-sidebar>
+        <!--End sidebar-wrapper-->
+
+        <!--Start top bar header-->
+        <app-top-navbar></app-top-navbar>
+        <!--End top bar header-->
+
+        <div class="clearfix"></div>
+
+        <router-outlet></router-outlet>
+
+        <!--Start footer-->
+        <app-footer></app-footer>
+        <!--End footer-->
+
+        <!--start color switcher-->
+        <app-right-sidebar></app-right-sidebar>
+        <!--end color switcher-->
+
+    </div>
+    <!--End wrapper-->

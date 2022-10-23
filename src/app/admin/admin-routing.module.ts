@@ -28,5 +28,5 @@ const routes: Routes = [
 export class AdminRoutingModule {}
 export const AdminRoutingComponents = [
   ViewContactsComponent,
-  AdminHomeComponent
+  AdminHomeComponent,
 ];
