@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
         this.target =
           '<div class="alert alert-success">Success!' + res.message + '</div>';
         if (res.id == 1) {
-          this.route.navigate(['/contacted']);
+          this.route.navigate(['/admin']);
         } else {
           this.route.navigate(['/']);
         }
