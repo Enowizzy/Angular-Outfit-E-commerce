@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgToastService } from 'ng-angular-popup';
 import { Contact } from 'src/app/models/contact.model';
 import { ContactService } from 'src/app/services/contact.service';
+import Swal from 'sweetalert2';
+// import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 @Component({
   selector: 'app-view-contacts',
@@ -43,6 +45,28 @@ export class ViewContactsComponent implements OnInit {
   }
 
   deleteContact(id: number) {
+    Swal.fire({
+      title: 'Are you sure want to remove?',
+      text: 'You will not be able to recover this record!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, keep it'
+    }).then((result) => {
+      if (result.value) {
+        Swal.fire(
+          'Deleted!',
+          'Your record has been deleted.',
+          'success'
+        )
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire(
+          'Cancelled',
+          'Your imaginary file is safe :)',
+          'error'
+        )
+      }
+    });
     return this.contactData.deleteContact(id).subscribe((res: any) => {
       this.getContact();
       if (res.code == 1) {
