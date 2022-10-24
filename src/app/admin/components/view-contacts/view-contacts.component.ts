@@ -41,4 +41,17 @@ export class ViewContactsComponent implements OnInit {
     });
   }
 
+  deleteContact(id: number){
+    return this.contactData.deleteContact(id).subscribe((res: any) => {
+      this.getContact();
+      if (res.code == 1) {
+        this.target =
+          '<div class="alert alert-success">Success!' + res.message + '</div>';
+      } else if (res.code == 2) {
+        this.target =
+          '<div class="alert alert-danger">Error!' + res.message + '</div>';
+      }
+    });
+  }
+
 }

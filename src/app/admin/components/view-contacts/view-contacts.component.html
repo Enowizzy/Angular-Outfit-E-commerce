@@ -1,6 +1,8 @@
 <div class="content-wrapper">
     <div class="container-fluid">
-
+        <div class="col-lg-9">
+            <div style="text-align: center;" [innerHtml]="target"></div>
+        </div>
         <div class="row mt-5">
             <div class="col-lg-9">
                 <div class="card">
@@ -28,8 +30,9 @@
                                                     class="fa fa-eye-slash" aria-hidden="true"></i></span>
                                             <span type="button" class="btn btn-warning ml-2" title="Edit"><i
                                                     class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
-                                            <span type="button" class="btn btn-danger ml-2" title="Delete"><i
-                                                    class="fa fa-trash" aria-hidden="true"></i></span>
+                                            <span (click)="deleteContact(contactData.id)" type="button"
+                                                class="btn btn-danger ml-2" title="Delete"><i class="fa fa-trash"
+                                                    aria-hidden="true"></i></span>
                                         </td>
                                     </tr>
                                 </tbody>

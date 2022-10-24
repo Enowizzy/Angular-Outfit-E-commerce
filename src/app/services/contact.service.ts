@@ -1,5 +1,6 @@
 import { HttpClient, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -15,5 +16,8 @@ export class ContactService {
   }
   storeContactData(data: any) {
     return this._httpRequest.post(this.API_URL + 'storeContact', data);
+  }
+  deleteContact(id: number): Observable<Object>{
+    return this._httpRequest.delete(this.API_URL + 'deleteContact/'+id);
   }
 }
