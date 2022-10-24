@@ -14,6 +14,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { ContentWrapperComponent } from './components/content-wrapper/content-wrapper.component';
 import { RightSidebarComponent } from './components/right-sidebar/right-sidebar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { NgToastModule } from 'ng-angular-popup';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { FooterComponent } from './components/footer/footer.component';
   imports: [
     FormsModule,
     BrowserModule,
+    NgToastModule,
     HttpClientModule,
     NgxSpinnerModule,
     ReactiveFormsModule,

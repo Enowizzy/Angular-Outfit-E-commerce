@@ -64,19 +64,16 @@ export class ViewContactsComponent implements OnInit {
       if (res.code == 1) {
         this.toast.success({
           detail: 'Success Message',
-          summary: res.message,
+          summary: "record deleted successful",
           duration: 5000,
         });
-        this.target =
-          '<div class="alert alert-success">Success!' + res.message + '</div>';
+       
       } else if (res.code == 2) {
         this.toast.error({
           detail: 'Error Message',
-          summary: res.message,
+          summary: "record not found",
           duration: 5000,
         });
-        this.target =
-          '<div class="alert alert-danger">Error!' + res.message + '</div>';
       }
     });
   }
