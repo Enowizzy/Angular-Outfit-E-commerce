@@ -28,6 +28,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import {  CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { LoginComponent } from './components/login/login.component';
 import { AdminModule } from './admin/admin.module';
+import { NgToastModule } from 'ng-angular-popup';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { AdminModule } from './admin/admin.module';
     AdminModule,
     FormsModule,
     BrowserModule,
+    NgToastModule,
     HttpClientModule,
     AppRoutingModule,
     NgxSpinnerModule,

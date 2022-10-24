@@ -23,6 +23,7 @@
     "angular-font-awesome": "^3.1.2",
     "bootstrap": "^5.2.2",
     "font-awesome": "^4.7.0",
+    "ng-angular-popup": "^0.2.0",
     "ngx-spinner": "^14.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
