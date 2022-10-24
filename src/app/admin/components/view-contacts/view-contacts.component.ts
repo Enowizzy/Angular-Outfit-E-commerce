@@ -16,7 +16,7 @@ export class ViewContactsComponent implements OnInit {
   user = new Contact();
   target: string = '';
   constructor(
-    private contactData: ContactService,
+    public contactData: ContactService,
     private toast: NgToastService
   ) {}
 
@@ -51,27 +51,19 @@ export class ViewContactsComponent implements OnInit {
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Yes, delete it!',
-      cancelButtonText: 'No, keep it'
+      cancelButtonText: 'No, keep it',
     }).then((result) => {
       if (result.value) {
-        Swal.fire(
-          'Deleted!',
-          'Your record has been deleted.',
-          'success'
-        )
+        Swal.fire('Deleted!', 'Your record has been deleted.', 'success');
       } else if (result.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire(
-          'Cancelled',
-          'Your imaginary file is safe :)',
-          'error'
-        )
+        Swal.fire('Cancelled', 'Your imaginary file is safe :)', 'error');
       }
     });
     return this.contactData.deleteContact(id).subscribe((res: any) => {
       this.getContact();
       if (res.code == 1) {
         this.toast.success({
-          detail: "Success Message",
+          detail: 'Success Message',
           summary: res.message,
           duration: 5000,
         });
@@ -79,7 +71,7 @@ export class ViewContactsComponent implements OnInit {
           '<div class="alert alert-success">Success!' + res.message + '</div>';
       } else if (res.code == 2) {
         this.toast.error({
-          detail: "Error Message",
+          detail: 'Error Message',
           summary: res.message,
           duration: 5000,
         });
