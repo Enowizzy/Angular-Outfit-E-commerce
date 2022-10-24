@@ -13,8 +13,8 @@ import { AdminHomeComponent } from './components/admin-home/admin-home.component
 import { AdminComponent } from './components/admin/admin.component';
 import { ContentWrapperComponent } from './components/content-wrapper/content-wrapper.component';
 import { RightSidebarComponent } from './components/right-sidebar/right-sidebar.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { NgToastModule } from 'ng-angular-popup';
+import { AdminFooterComponent } from './components/admin-footer/admin-footer.component';
 
 
 @NgModule({
@@ -27,7 +27,7 @@ import { NgToastModule } from 'ng-angular-popup';
     AdminComponent,
     ContentWrapperComponent,
     RightSidebarComponent,
-    FooterComponent
+    AdminFooterComponent
   ],
   imports: [
     FormsModule,
