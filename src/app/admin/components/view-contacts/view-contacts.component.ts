@@ -3,7 +3,6 @@ import { NgToastService } from 'ng-angular-popup';
 import { Contact } from 'src/app/models/contact.model';
 import { ContactService } from 'src/app/services/contact.service';
 import Swal from 'sweetalert2';
-// import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 @Component({
   selector: 'app-view-contacts',

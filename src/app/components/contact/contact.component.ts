@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Contact } from 'src/app/models/contact.model';
 import { ContactService } from 'src/app/services/contact.service';
@@ -17,7 +18,8 @@ export class ContactComponent implements OnInit {
   constructor(
     private route: Router,
     private contactData: ContactService,
-    public spinner: NgxSpinnerService
+    public spinner: NgxSpinnerService,
+    private toast: NgToastService
   ) {}
 
   ngOnInit(): void {
@@ -37,12 +39,17 @@ export class ContactComponent implements OnInit {
       }, 1000);
       this.contactDatas = res;
       if (res.code == 1) {
-        this.target =
-          '<div class="alert alert-success">Success!' + res.message + '</div>';
-        this.route.navigate(['/contacted']);
+        this.toast.success({
+          detail: 'Success Message',
+          summary: res.message,
+          duration: 5000,
+        });
       } else if (res.code == 2) {
-        this.target =
-          '<div class="alert alert-danger">Error!' + res.message + '</div>';
+        this.toast.error({
+          detail: 'Success Message',
+          summary: res.message,
+          duration: 5000,
+        });
       }
     });
   }
