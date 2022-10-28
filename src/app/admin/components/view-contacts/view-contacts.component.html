@@ -39,7 +39,7 @@
                             </table>
                         </div>
                     </div>
-                    <div class="alert alert-danger" *ngIf="!contactDatas">
+                    <div class="alert alert-danger" *ngIf="contactDatas.total <= 0;">
                         <p><strong>Oops! No contacts made yet.</strong></p>
                         <p>A few things might help:</p>
                         <p>1. Make contacts <a routerLink="/contact" class="alert-link">here</a></p>
