@@ -31,7 +31,7 @@ import { AdminModule } from './admin/admin.module';
 import { NgToastModule } from 'ng-angular-popup';
 import { MatSliderModule } from '@angular/material/slider';
 import {MatButtonModule} from '@angular/material/button';
-
+import {MatTableModule} from '@angular/material/table';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +61,7 @@ import {MatButtonModule} from '@angular/material/button';
     FormsModule,
     MatButtonModule,
     MatSliderModule,
+    MatTableModule,
     BrowserModule,
     NgToastModule,
     HttpClientModule,

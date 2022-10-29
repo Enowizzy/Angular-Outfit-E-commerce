@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class ContactService {
-  contactData:any;
+  contactData: any;
   private API_URL = environment.API_URL;
   constructor(private _httpRequest: HttpClient) {}
 
@@ -17,7 +17,7 @@ export class ContactService {
   storeContactData(data: any) {
     return this._httpRequest.post(this.API_URL + 'storeContact', data);
   }
-  deleteContact(id: number): Observable<Object>{
-    return this._httpRequest.delete(this.API_URL + 'deleteContact/'+id);
+  deleteContact(id: number): Observable<Object> {
+    return this._httpRequest.delete(this.API_URL + 'deleteContact/' + id);
   }
 }
