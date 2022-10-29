@@ -29,6 +29,8 @@ import {  CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { LoginComponent } from './components/login/login.component';
 import { AdminModule } from './admin/admin.module';
 import { NgToastModule } from 'ng-angular-popup';
+import { MatSliderModule } from '@angular/material/slider';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,8 @@ import { NgToastModule } from 'ng-angular-popup';
   imports: [
     AdminModule,
     FormsModule,
+    MatButtonModule,
+    MatSliderModule,
     BrowserModule,
     NgToastModule,
     HttpClientModule,
