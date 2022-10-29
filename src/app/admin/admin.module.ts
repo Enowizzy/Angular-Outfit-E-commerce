@@ -16,6 +16,9 @@ import { RightSidebarComponent } from './components/right-sidebar/right-sidebar.
 import { NgToastModule } from 'ng-angular-popup';
 import { AdminFooterComponent } from './components/admin-footer/admin-footer.component';
 import { AuthGuard } from '../auth.guard';
+import { AddProductComponent } from './components/add-product/add-product.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 @NgModule({
@@ -28,14 +31,17 @@ import { AuthGuard } from '../auth.guard';
     AdminComponent,
     ContentWrapperComponent,
     RightSidebarComponent,
-    AdminFooterComponent
+    AdminFooterComponent,
+    AddProductComponent
   ],
   imports: [
     FormsModule,
     BrowserModule,
     NgToastModule,
+    MatInputModule,
     HttpClientModule,
     NgxSpinnerModule,
+    MatFormFieldModule,
     ReactiveFormsModule,
     AdminRoutingModule,
     BrowserAnimationsModule
