@@ -32,6 +32,8 @@ import { NgToastModule } from 'ng-angular-popup';
 import { MatSliderModule } from '@angular/material/slider';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,6 +64,8 @@ import {MatTableModule} from '@angular/material/table';
     MatButtonModule,
     MatSliderModule,
     MatTableModule,
+    MatInputModule,
+    MatFormFieldModule,
     BrowserModule,
     NgToastModule,
     HttpClientModule,
