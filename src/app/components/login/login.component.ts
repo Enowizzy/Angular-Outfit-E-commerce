@@ -12,6 +12,11 @@ import { UserService } from 'src/app/services/user.service';
 export class LoginComponent implements OnInit {
   target: string = '';
   loginDatas: any;
+  Login = "Sign In";
+
+  changeText(){
+    this.Login= "Signing In...";
+  }
 
   get email() {
     return this.loginForm.get('email');
