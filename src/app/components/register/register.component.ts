@@ -12,6 +12,11 @@ import { UserService } from 'src/app/services/user.service';
 export class RegisterComponent implements OnInit {
   target: string = '';
   registerDatas: any;
+  register = "Sign Up";
+
+  changeText(){
+    this.register= "Signing Up...";
+  }
 
   get first_name() {
     return this.registrationForm.get('first_name');

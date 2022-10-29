@@ -74,8 +74,12 @@
                                     </div>
 
                                     <div class="pt-1 mb-4">
-                                        <button [disabled]="!registrationForm.valid"
-                                            class="btn btn-dark btn-lg btn-block" type="submit">Sign Up</button>
+                                        <!-- <button [disabled]="!registrationForm.valid"
+                                            class="btn btn-dark btn-lg btn-block" type="submit">Sign Up</button> -->
+
+                                            <button mat-raised-button color="primary" [disabled]="registrationForm.invalid"
+                                            (click)="changeText()" class="btn btn-dark btn-lg btn-block"
+                                            type="submit">{{ register }}</button>
                                     </div>
 
                                     <a class="small text-muted" href="#!">Forgot password?</a>
