@@ -11,6 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class LoginComponent implements OnInit {
   target: string = '';
+  token:any;
   loginDatas: any;
   Login = "Sign In";
 
@@ -46,6 +47,7 @@ export class LoginComponent implements OnInit {
       }, 1000);
       this.loginDatas = res;
       if (res.code == 1) {
+        this.token = localStorage.setItem('token', res.token);
         this.target =
           '<div class="alert alert-success">Success!' + res.message + '</div>';
         if (res.id == 1) {

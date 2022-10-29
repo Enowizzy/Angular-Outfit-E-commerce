@@ -33,7 +33,7 @@
               please keep in touch with this system to notice any changes that may be made:</p>
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title" style="text-align: center;">Contact Received:</h5>
+                <h3 class="card-title" style="text-align: center;">Contact Received:</h3>
                 <div class="table-responsive" *ngIf="contactDatas">
                   <table class="table table-grey table-hover">
                     <thead>
@@ -63,7 +63,7 @@
                     </tbody>
                   </table>
                 </div>
-                <div class="alert alert-danger" *ngIf="!contactDatas">
+                <div class="alert alert-danger" *ngIf="contactDatas.length <= 0;">
                   <p><strong>Oops! No contacts made yet.</strong></p>
                   <p>A few things might help:</p>
                   <p>1. Make contacts <a routerLink="/contact" class="alert-link">here</a></p>

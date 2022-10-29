@@ -15,6 +15,7 @@ import { ContentWrapperComponent } from './components/content-wrapper/content-wr
 import { RightSidebarComponent } from './components/right-sidebar/right-sidebar.component';
 import { NgToastModule } from 'ng-angular-popup';
 import { AdminFooterComponent } from './components/admin-footer/admin-footer.component';
+import { AuthGuard } from '../auth.guard';
 
 
 @NgModule({
@@ -40,7 +41,7 @@ import { AdminFooterComponent } from './components/admin-footer/admin-footer.com
     BrowserAnimationsModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AdminComponent]
 })
 export class AdminModule { }
