@@ -4,6 +4,11 @@ import { ThemePalette } from '@angular/material/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 
+interface Food {
+  value: string;
+  viewValue: string;
+}
+
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
@@ -14,6 +19,15 @@ export class AddProductComponent implements OnInit {
   color: ThemePalette = 'accent';
   checked = false;
   disabled = false;
+  selectedValue: string = '';
+
+  foods: Food[] = [
+    {value: 'steak-0', viewValue: 'Steak'},
+    {value: 'pizza-1', viewValue: 'Pizza'},
+    {value: 'tacos-2', viewValue: 'Tacos'},
+  ];
+
+ 
 
   changeText() {
     this.addProduct = 'Submitting Product...';

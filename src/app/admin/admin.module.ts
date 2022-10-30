@@ -20,7 +20,7 @@ import { AddProductComponent } from './components/add-product/add-product.compon
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -40,6 +40,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     BrowserModule,
     NgToastModule,
     MatInputModule,
+    MatSelectModule,
     HttpClientModule,
     NgxSpinnerModule,
     AdminRoutingModule,

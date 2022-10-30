@@ -26,7 +26,16 @@
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
-                                        <label for="input-7">Brand</label>
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>Favorite food</mat-label>
+                                            <mat-select [(ngModel)]="selectedValue" name="food">
+                                              <mat-option *ngFor="let food of foods" [value]="food.value">
+                                                {{food.viewValue}}
+                                              </mat-option>
+                                            </mat-select>
+                                          </mat-form-field>
+
+                                        <!-- <label for="input-7">Brand</label>
                                         <input type="text" [class.is-invalid]="brand?.invalid && brand?.touched"
                                             class="form-control form-control-rounded" id="input-7"
                                             formControlName="brand" placeholder="Enter your product brand">
@@ -34,7 +43,7 @@
                                             <small *ngIf="brand?.hasError('required')" class="text-danger">product brand
                                                 is
                                                 required</small>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
