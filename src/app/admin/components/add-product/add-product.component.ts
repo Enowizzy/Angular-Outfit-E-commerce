@@ -18,15 +18,50 @@ export class AddProductComponent implements OnInit {
   changeText() {
     this.addProduct = 'Submitting Product...';
   }
+
+  get name() {
+    return this.submitProductForm.get('name');
+  }
+  get brand() {
+    return this.submitProductForm.get('brand');
+  }
+  get category() {
+    return this.submitProductForm.get('category');
+  }
+  get quantity() {
+    return this.submitProductForm.get('quantity');
+  }
+  get description() {
+    return this.submitProductForm.get('description');
+  }
+  get images() {
+    return this.submitProductForm.get('images');
+  }
+  get cost() {
+    return this.submitProductForm.get('cost');
+  }
+  get price() {
+    return this.submitProductForm.get('price');
+  }
+
   constructor(
     private fb: FormBuilder,
     public spinner: NgxSpinnerService,
     private route: Router
   ) {}
 
-  public submitProductForm = new FormGroup({});
-
   ngOnInit(): void {}
+
+  submitProductForm = this.fb.group({
+    name: ['', [Validators.required, Validators.minLength(3)]],
+    brand: ['', [Validators.required]],
+    category: ['', [Validators.required]],
+    quantity: ['', [Validators.required]],
+    description: ['', [Validators.required]],
+    images: ['', [Validators.required]],
+    cost: ['', [Validators.required]],
+    price: ['', [Validators.required]],
+  });
 
   public productSubmit(): void {}
 }
