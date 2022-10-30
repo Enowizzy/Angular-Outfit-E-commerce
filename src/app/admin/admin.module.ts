@@ -19,6 +19,7 @@ import { AuthGuard } from '../auth.guard';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 
 @NgModule({
@@ -41,9 +42,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatInputModule,
     HttpClientModule,
     NgxSpinnerModule,
+    AdminRoutingModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    AdminRoutingModule,
+    MatSlideToggleModule,
     BrowserAnimationsModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

@@ -2,39 +2,90 @@
     <div class="container-fluid">
 
         <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-lg-6 mt-3">
+            <div class="col-lg-6 mt-5">
                 <div class="card">
                     <div class="card-body">
                         <div class="card-title" style="text-align: center;">Add Product</div>
                         <hr>
-                        <form>
-                            <div class="form-group">
-                                <label for="input-6">Name</label>
-                                <input type="text" class="form-control form-control-rounded" id="input-6"
-                                    placeholder="Enter Your Name">
+                        <form (ngSubmit)="productSubmit()">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="input-6">Product Name</label>
+                                        <input type="text" class="form-control form-control-rounded" id="input-6"
+                                            placeholder="Enter your product name">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="input-7">Brand</label>
+                                        <input type="text" class="form-control form-control-rounded" id="input-7"
+                                            placeholder="Enter your product cost price">
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="input-7">Cost Price</label>
-                                <input type="text" class="form-control form-control-rounded" id="input-7"
-                                    placeholder="Enter Your Email Address">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="input-7">Cost Price</label>
+                                        <input type="text" class="form-control form-control-rounded" id="input-7"
+                                            placeholder="Enter your product cost price">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="input-7">Selling price</label>
+                                        <input type="number" class="form-control form-control-rounded" id="input-7"
+                                            placeholder="Enter your product cost price">
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="input-7">Selling Price</label>
-                                <input type="text" class="form-control form-control-rounded" id="input-7"
-                                    placeholder="Enter Your Email Address">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="input-7">Category</label>
+                                        <input type="text" class="form-control form-control-rounded" id="input-7"
+                                            placeholder="Enter your product cost price">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="input-7">Subcategory</label>
+                                        <input type="text" class="form-control form-control-rounded" id="input-7"
+                                            placeholder="Enter your product cost price">
+                                    </div>
+                                </div>
                             </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="input-7">Quantity</label>
+                                        <input type="text" class="form-control form-control-rounded" id="input-7"
+                                            placeholder="Enter your product cost price">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <mat-slide-toggle class="example-margin mt-4" [color]="color" [checked]="checked"
+                                        [disabled]="disabled">
+                                        Available.
+                                    </mat-slide-toggle>
+                                </div>
+                            </div>
+
                             <div class="form-group">
                                 <label for="input-8">Description</label>
-                                <input type="text" class="form-control form-control-rounded" id="input-8"
-                                    placeholder="Enter Your Mobile Number">
+                                <textarea type="text" class="form-control form-control" id="input-8"
+                                    placeholder="Enter your product description"></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="input-9">Images</label>
                                 <input type="file" class="form-control form-control-rounded" id="input-9"
-                                    placeholder="Enter Password">
+                                    placeholder="Select Images">
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-light btn-round px-5 float-end"><i class="icon-lock"></i>
+                                <button type="submit" (click)="changeText()"
+                                    class="btn btn-light btn-round px-5 float-end"><i class="icon-lock"></i>
                                     {{ addProduct }}</button>
                             </div>
                         </form>
