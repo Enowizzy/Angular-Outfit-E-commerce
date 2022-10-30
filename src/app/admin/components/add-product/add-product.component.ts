@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ThemePalette } from '@angular/material/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { CategoryBrand } from 'src/app/Interfaces/category-brand';
+import { CategoryBrandService } from 'src/app/services/category-brand.service';
 
 interface Food {
   value: string;
@@ -20,6 +22,7 @@ export class AddProductComponent implements OnInit {
   checked = false;
   disabled = false;
   selectedValue: string = '';
+  all: any = '';
 
   foods: Food[] = [
     {value: 'steak-0', viewValue: 'Steak'},
@@ -27,6 +30,7 @@ export class AddProductComponent implements OnInit {
     {value: 'tacos-2', viewValue: 'Tacos'},
   ];
 
+  categoryBrands: CategoryBrand[] = [];
  
 
   changeText() {
@@ -61,10 +65,21 @@ export class AddProductComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     public spinner: NgxSpinnerService,
+    private categoryBrand: CategoryBrandService,
     private route: Router
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.all = this.categoryBrand.getCategoryBrands();
+    this.getCategoryBrands();
+    console.log(this.all.categories);
+  }
+
+  getCategoryBrands() {
+    this.categoryBrand.getCategoryBrands().subscribe((res) => {
+      this.all = res;
+    });
+  }
 
   submitProductForm = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(3)]],
