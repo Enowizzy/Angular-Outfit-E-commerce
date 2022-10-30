@@ -56,12 +56,14 @@ export class AddProductComponent implements OnInit {
     name: ['', [Validators.required, Validators.minLength(3)]],
     brand: ['', [Validators.required]],
     category: ['', [Validators.required]],
-    quantity: ['', [Validators.required]],
+    quantity: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
     description: ['', [Validators.required]],
     images: ['', [Validators.required]],
-    cost: ['', [Validators.required]],
-    price: ['', [Validators.required]],
+    cost: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
+    price: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
   });
 
-  public productSubmit(): void {}
+  public productSubmit(): void {
+    console.log(this.submitProductForm.value);
+  }
 }

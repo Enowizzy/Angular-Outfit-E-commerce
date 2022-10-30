@@ -12,8 +12,8 @@
                                     <div class="form-group">
                                         <label for="input-6">Product Name</label>
                                         <input type="text" [class.is-invalid]="name?.invalid && name?.touched"
-                                            class="form-control form-control-rounded" id="input-6" formControlName="name"
-                                            placeholder="Enter your product name">
+                                            class="form-control form-control-rounded" id="input-6"
+                                            formControlName="name" placeholder="Enter your product name">
                                         <div *ngIf="name?.invalid && name?.touched">
                                             <small *ngIf="name?.hasError('required')" class="text-danger">product name
                                                 is
@@ -28,13 +28,13 @@
                                     <div class="form-group">
                                         <label for="input-7">Brand</label>
                                         <input type="text" [class.is-invalid]="brand?.invalid && brand?.touched"
-                                            class="form-control form-control-rounded" id="input-7" formControlName="brand"
-                                            placeholder="Enter your product brand">
-                                            <div *ngIf="brand?.invalid && brand?.touched">
-                                                <small *ngIf="brand?.hasError('required')" class="text-danger">product brand
-                                                    is
-                                                    required</small>
-                                            </div>
+                                            class="form-control form-control-rounded" id="input-7"
+                                            formControlName="brand" placeholder="Enter your product brand">
+                                        <div *ngIf="brand?.invalid && brand?.touched">
+                                            <small *ngIf="brand?.hasError('required')" class="text-danger">product brand
+                                                is
+                                                required</small>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -42,27 +42,37 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="input-7">Cost Price</label>
-                                        <input type="text" [class.is-invalid]="cost?.invalid && cost?.touched"
-                                            class="form-control form-control-rounded" id="input-7" formControlName="cost"
-                                            placeholder="Enter your product cost price">
-                                            <div *ngIf="cost?.invalid && cost?.touched">
-                                                <small *ngIf="cost?.hasError('required')" class="text-danger">product cost price
-                                                    is
-                                                    required</small>
-                                            </div>
+                                        <input type="number" [class.is-invalid]="cost?.invalid && cost?.touched"
+                                            class="form-control form-control-rounded" id="input-7"
+                                            formControlName="cost" placeholder="Enter your product cost price">
+                                        <div *ngIf="cost?.invalid && cost?.touched">
+                                            <small *ngIf="cost?.hasError('required')" class="text-danger">product cost
+                                                price
+                                                is
+                                                required</small>
+                                            <small *ngIf="cost?.hasError('pattern')" class="text-danger">product
+                                                cost
+                                                is
+                                                invalid!</small>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="input-7">Selling price</label>
                                         <input type="number" [class.is-invalid]="price?.invalid && price?.touched"
-                                            class="form-control form-control-rounded" id="input-7" formControlName="price"
-                                            placeholder="Enter your product selling price">
-                                            <div *ngIf="price?.invalid && price?.touched">
-                                                <small *ngIf="price?.hasError('required')" class="text-danger">product selling price
-                                                    is
-                                                    required</small>
-                                            </div>
+                                            class="form-control form-control-rounded" id="input-7"
+                                            formControlName="price" placeholder="Enter your product selling price">
+                                        <div *ngIf="price?.invalid && price?.touched">
+                                            <small *ngIf="price?.hasError('required')" class="text-danger">product
+                                                selling price
+                                                is
+                                                required</small>
+                                            <small *ngIf="price?.hasError('pattern')" class="text-danger">product
+                                                price
+                                                is
+                                                invalid!</small>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -71,13 +81,14 @@
                                     <div class="form-group">
                                         <label for="input-7">Category</label>
                                         <input type="text" [class.is-invalid]="category?.invalid && category?.touched"
-                                            class="form-control form-control-rounded" id="input-7" formControlName="category"
-                                            placeholder="Enter your product category">
-                                            <div *ngIf="category?.invalid && category?.touched">
-                                                <small *ngIf="category?.hasError('required')" class="text-danger">product category
-                                                    is
-                                                    required</small>
-                                            </div>
+                                            class="form-control form-control-rounded" id="input-7"
+                                            formControlName="category" placeholder="Enter your product category">
+                                        <div *ngIf="category?.invalid && category?.touched">
+                                            <small *ngIf="category?.hasError('required')" class="text-danger">product
+                                                category
+                                                is
+                                                required</small>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col">
@@ -93,14 +104,19 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="input-7">Quantity</label>
-                                        <input type="text" [class.is-invalid]="quantity?.invalid && quantity?.touched"
-                                            class="form-control form-control-rounded" id="input-7" formControlName="quantity"
-                                            placeholder="Enter your product quantity">
-                                            <div *ngIf="quantity?.invalid && quantity?.touched">
-                                                <small *ngIf="quantity?.hasError('required')" class="text-danger">product quantity
-                                                    is
-                                                    required</small>
-                                            </div>
+                                        <input type="number" [class.is-invalid]="quantity?.invalid && quantity?.touched"
+                                            class="form-control form-control-rounded" id="input-7"
+                                            formControlName="quantity" placeholder="Enter your product quantity">
+                                        <div *ngIf="quantity?.invalid && quantity?.touched">
+                                            <small *ngIf="quantity?.hasError('required')" class="text-danger">product
+                                                quantity
+                                                is
+                                                required</small>
+                                            <small *ngIf="quantity?.hasError('pattern')" class="text-danger">product
+                                                quantity
+                                                is
+                                                invalid!</small>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col">
@@ -116,21 +132,23 @@
                                 <textarea type="text" [class.is-invalid]="description?.invalid && description?.touched"
                                     class="form-control form-control" id="input-8" formControlName="description"
                                     placeholder="Enter your product description"></textarea>
-                                    <div *ngIf="description?.invalid && description?.touched">
-                                        <small *ngIf="description?.hasError('required')" class="text-danger">product descriptions
-                                            is
-                                            required</small>
-                                    </div>
+                                <div *ngIf="description?.invalid && description?.touched">
+                                    <small *ngIf="description?.hasError('required')" class="text-danger">product
+                                        descriptions
+                                        is
+                                        required</small>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="input-9">Images</label>
-                                <input type="file" [class.is-invalid]="images?.invalid && images?.touched" formControlName="images"
-                                    class="form-control form-control-rounded" id="input-9" placeholder="Select Images">
-                                    <div *ngIf="images?.invalid && images?.touched">
-                                        <small *ngIf="images?.hasError('required')" class="text-danger">image
-                                            is
-                                            required</small>
-                                    </div>
+                                <input type="file" [class.is-invalid]="images?.invalid && images?.touched"
+                                    formControlName="images" class="form-control form-control-rounded" id="input-9"
+                                    placeholder="Select Images" multiple="">
+                                <div *ngIf="images?.invalid && images?.touched">
+                                    <small *ngIf="images?.hasError('required')" class="text-danger">image
+                                        is
+                                        required</small>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <button type="submit" (click)="changeText()" [disabled]="!submitProductForm.valid"
