@@ -45,7 +45,7 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="cost" class="form-label">Cost price</label>
-                                        <input type="text" id="cost" name="cost" #cost="ngModel"
+                                        <input type="number" id="cost" name="cost" #cost="ngModel"
                                             [(ngModel)]="product.cost" placeholder="Enter your product cost price"
                                             required class="form-control form-control-rounded"
                                             [class.is-invalid]="cost.invalid && (cost.dirty || cost.touched)">
@@ -60,7 +60,7 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="price" class="form-label">Selling price</label>
-                                        <input type="text" id="price" name="price" #price="ngModel"
+                                        <input type="number" id="price" name="price" #price="ngModel"
                                             [(ngModel)]="product.price" placeholder="Enter your product selling price"
                                             required class="form-control form-control-rounded"
                                             [class.is-invalid]="price.invalid && (price.dirty || price.touched)">
@@ -102,7 +102,7 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="quantity" class="form-label">Quantity</label>
-                                        <input type="text" id="quantity" name="quantity" #quantity="ngModel"
+                                        <input type="number" id="quantity" name="quantity" #quantity="ngModel"
                                             [(ngModel)]="product.quantity" placeholder="Enter your product quantity"
                                             required minlength="3" maxlength="50"
                                             class="form-control form-control-rounded"
