@@ -21,6 +21,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSelectModule} from '@angular/material/select';
+import { ProductListComponent } from './components/product-list/product-list.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {MatSelectModule} from '@angular/material/select';
     ContentWrapperComponent,
     RightSidebarComponent,
     AdminFooterComponent,
-    AddProductComponent
+    AddProductComponent,
+    ProductListComponent
   ],
   imports: [
     FormsModule,
