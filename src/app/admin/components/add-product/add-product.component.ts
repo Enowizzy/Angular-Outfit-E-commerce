@@ -63,7 +63,7 @@ export class AddProductComponent implements OnInit {
       if (res.code == 1) {
         this.target =
           '<div class="alert alert-success">Success!' + res.message + '</div>';
-          this.route.navigate(['/product-list']);
+          this.route.navigate(['/admin/product-list']);
 
       } else if (res.code == 2) {
         this.target =
