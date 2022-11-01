@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Product } from 'src/app/models/product';
 import { CategoryBrandService } from 'src/app/services/category-brand.service';
+import { ProductService } from 'src/app/services/product.service';
 
 
 @Component({
@@ -23,6 +24,8 @@ export class AddProductComponent implements OnInit {
   sub_categories: any;
   categories: any;
   product = new Product();
+  productData: any;
+  target: string = '';
 
 
   changeText() {
@@ -31,6 +34,7 @@ export class AddProductComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    public storeProduct: ProductService,
     public spinner: NgxSpinnerService,
     private categoryBrand: CategoryBrandService,
     private route: Router
@@ -50,6 +54,21 @@ export class AddProductComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.product);
+    this.spinner.show();
+    this.storeProduct.addProduct(this.product).subscribe((res: any) => {
+      setTimeout(() => {
+        this.spinner.hide();
+      }, 1000);
+      this.productData = res;
+      if (res.code == 1) {
+        this.target =
+          '<div class="alert alert-success">Success!' + res.message + '</div>';
+          this.route.navigate(['/']);
+
+      } else if (res.code == 2) {
+        this.target =
+          '<div class="alert alert-danger">Error!' + res.message + '</div>';
+      }
+    });
   }
 }
