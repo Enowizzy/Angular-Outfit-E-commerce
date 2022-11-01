@@ -3,13 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ThemePalette } from '@angular/material/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { CategoryBrand } from 'src/app/Interfaces/category-brand';
 import { CategoryBrandService } from 'src/app/services/category-brand.service';
 
-interface Food {
-  value: string;
-  viewValue: string;
-}
 
 @Component({
   selector: 'app-add-product',
@@ -22,15 +17,11 @@ export class AddProductComponent implements OnInit {
   checked = false;
   disabled = false;
   selectedValue: string = '';
-  all: any = '';
+  categoryBrands: any;
+  brands: any;
+  sub_categories: any;
+  categories: any;
 
-  foods: Food[] = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'},
-  ];
-
-  categoryBrands: CategoryBrand[] = [];
  
 
   changeText() {
@@ -70,14 +61,15 @@ export class AddProductComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.all = this.categoryBrand.getCategoryBrands();
+    this.categoryBrands = this.categoryBrand.getCategoryBrands();
     this.getCategoryBrands();
-    console.log(this.all.categories);
   }
 
   getCategoryBrands() {
     this.categoryBrand.getCategoryBrands().subscribe((res) => {
-      this.all = res;
+      this.brands = res.brand;
+      this.categories = res.category;
+      this.sub_categories = res.sub_category;
     });
   }
 

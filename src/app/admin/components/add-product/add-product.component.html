@@ -1,6 +1,5 @@
 <div class="content-wrapper align-items-center justify-content-center">
     <div class="container-fluid">
-
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-lg-6 mt-2">
                 <div class="card">
@@ -27,10 +26,10 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <mat-form-field appearance="fill">
-                                            <mat-label>Favorite food</mat-label>
-                                            <mat-select [(ngModel)]="selectedValue" name="food">
-                                              <mat-option *ngFor="let food of foods" [value]="food.value">
-                                                {{food.viewValue}}
+                                            <mat-label>Select brands</mat-label>
+                                            <mat-select [(ngModel)]="selectedValue" name="brands">
+                                              <mat-option *ngFor="let brand of brands" [value]="brand.id">
+                                                {{brand.name}}
                                               </mat-option>
                                             </mat-select>
                                           </mat-form-field>
@@ -87,7 +86,16 @@
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <div class="form-group">
+                                    <mat-form-field appearance="fill">
+                                        <mat-label>Select Category</mat-label>
+                                        <mat-select [(ngModel)]="selectedValue" name="categories">
+                                          <mat-option *ngFor="let category of categories" [value]="category.id">
+                                            {{category.name}}
+                                          </mat-option>
+                                        </mat-select>
+                                      </mat-form-field>
+
+                                    <!-- <div class="form-group">
                                         <label for="input-7">Category</label>
                                         <input type="text" [class.is-invalid]="category?.invalid && category?.touched"
                                             class="form-control form-control-rounded" id="input-7"
@@ -98,14 +106,24 @@
                                                 is
                                                 required</small>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="col">
-                                    <div class="form-group">
+
+                                    <mat-form-field appearance="fill">
+                                        <mat-label>Select SubCategory</mat-label>
+                                        <mat-select [(ngModel)]="selectedValue" name="sub_categories">
+                                          <mat-option *ngFor="let sub_category of sub_categories" [value]="sub_category.id">
+                                            {{sub_category.name}}
+                                          </mat-option>
+                                        </mat-select>
+                                      </mat-form-field>
+
+                                    <!-- <div class="form-group">
                                         <label for="input-7">SubCategory</label>
                                         <input type="text" class="form-control form-control-rounded" id="input-7"
                                             placeholder="Enter your product subcategory price">
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
 
