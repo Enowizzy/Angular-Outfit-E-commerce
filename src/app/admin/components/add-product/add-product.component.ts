@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ThemePalette } from '@angular/material/core';
 import { Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Product } from 'src/app/models/product';
 import { CategoryBrandService } from 'src/app/services/category-brand.service';
 import { ProductService } from 'src/app/services/product.service';
-
 
 @Component({
   selector: 'app-add-product',
@@ -27,7 +27,6 @@ export class AddProductComponent implements OnInit {
   productData: any;
   target: string = '';
 
-
   changeText() {
     this.addProduct = 'Submitting Product...';
   }
@@ -36,6 +35,7 @@ export class AddProductComponent implements OnInit {
     private fb: FormBuilder,
     public storeProduct: ProductService,
     public spinner: NgxSpinnerService,
+    private toast: NgToastService,
     private categoryBrand: CategoryBrandService,
     private route: Router
   ) {}
@@ -53,21 +53,27 @@ export class AddProductComponent implements OnInit {
     });
   }
 
-  onSubmit(){
-    this.spinner.show();
+  onSubmit() {
+    // this.spinner.show();
     this.storeProduct.addProduct(this.product).subscribe((res: any) => {
-      setTimeout(() => {
-        this.spinner.hide();
-      }, 1000);
+      // setTimeout(() => {
+      //   this.spinner.hide();
+      // }, 1000);
       this.productData = res;
       if (res.code == 1) {
-        this.target =
-          '<div class="alert alert-success">Success!' + res.message + '</div>';
-          this.route.navigate(['/admin/product-list']);
-
+        this.toast.success({
+          detail: 'Success Message',
+          summary: res.message,
+          duration: 5000,
+        });
+        this.route.navigate(['/admin/product-list']);
       } else if (res.code == 2) {
-        this.target =
-          '<div class="alert alert-danger">Error!' + res.message + '</div>';
+        this.spinner.hide();
+        this.toast.error({
+          detail: 'Success Message',
+          summary: res.message,
+          duration: 5000,
+        });
       }
     });
   }
