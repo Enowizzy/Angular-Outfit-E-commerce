@@ -53,6 +53,21 @@ export class AddProductComponent implements OnInit {
     });
   }
 
+  urls:any = [];
+  onSelect(e:any){
+    if (e.target.files) {
+      for (let i = 0; i < File.length; i++) {
+        var reader = new FileReader();
+        reader.readAsDataURL(e.target.files[i]);
+        // reader.onload= e => this.urls = reader.result;
+        reader.onload = (events:any)=> {
+          this.urls.push(events.target.results);
+        }
+      }
+      
+    }
+  }
+
   onSubmit() {
     // this.spinner.show();
     this.storeProduct.addProduct(this.product).subscribe((res: any) => {
