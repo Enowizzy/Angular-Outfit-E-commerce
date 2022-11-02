@@ -1,3 +1,4 @@
+<lib-ng-toast></lib-ng-toast>
 <div class="content-wrapper align-items-center justify-content-center">
     <div class="container-fluid">
         <div class="row d-flex justify-content-center align-items-center h-100">
@@ -152,9 +153,10 @@
 
                             <div class="form-group">
                                 <label for="input-9">Images</label>
+                                <img *ngFor="let url of urls" [src]="url" height="100">
                                 <input type="file" name="images" #images="ngModel" [(ngModel)]="product.images"
-                                    placeholder="Enter your product description" required
-                                    class="form-control form-control"
+                                    accept=".png, .jpg, .jpeg" placeholder="Enter your product description" required
+                                    class="form-control form-control" (change)="onSelect($event);"
                                     [class.is-invalid]="images.invalid && (images.dirty || images.touched)" multiple="">
                                 <div *ngIf="images.invalid && (images.dirty || images.touched)"
                                     class="invalid-feedback">
