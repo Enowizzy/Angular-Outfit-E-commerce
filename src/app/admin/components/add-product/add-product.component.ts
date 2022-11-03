@@ -53,20 +53,6 @@ export class AddProductComponent implements OnInit {
     });
   }
 
-  urls:any = [];
-  onSelect(e:any){
-    if (e.target.files) {
-      for (let i = 0; i < File.length; i++) {
-        var reader = new FileReader();
-        reader.readAsDataURL(e.target.files[i]);
-        // reader.onload= e => this.urls = reader.result;
-        reader.onload = (events:any)=> {
-          this.urls.push(events.target.results);
-        }
-      }
-      
-    }
-  }
 
   onSubmit() {
     // this.spinner.show();
@@ -81,7 +67,7 @@ export class AddProductComponent implements OnInit {
           summary: res.message,
           duration: 5000,
         });
-        this.route.navigate(['/admin/product-list']);
+        // this.route.navigate(['/admin/product-list']);
       } else if (res.code == 2) {
         this.spinner.hide();
         this.toast.error({

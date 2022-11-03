@@ -153,10 +153,9 @@
 
                             <div class="form-group">
                                 <label for="input-9">Images</label>
-                                <img *ngFor="let url of urls" [src]="url" height="100">
                                 <input type="file" name="images" #images="ngModel" [(ngModel)]="product.images"
                                     accept=".png, .jpg, .jpeg" placeholder="Enter your product description" required
-                                    class="form-control form-control" (change)="onSelect($event);"
+                                    class="form-control form-control"
                                     [class.is-invalid]="images.invalid && (images.dirty || images.touched)" multiple="">
                                 <div *ngIf="images.invalid && (images.dirty || images.touched)"
                                     class="invalid-feedback">
