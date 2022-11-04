@@ -26,6 +26,7 @@ export class AddProductComponent implements OnInit {
   product = new Product();
   productData: any;
   target: string = '';
+  filedata: any;
 
   changeText() {
     this.addProduct = 'Submitting Product...';
@@ -37,7 +38,7 @@ export class AddProductComponent implements OnInit {
     public spinner: NgxSpinnerService,
     private toast: NgToastService,
     private categoryBrand: CategoryBrandService,
-    private route: Router
+    private route: Router,
   ) {}
 
   ngOnInit(): void {
@@ -52,7 +53,6 @@ export class AddProductComponent implements OnInit {
       this.sub_categories = res.sub_category;
     });
   }
-
 
   onSubmit() {
     // this.spinner.show();
@@ -78,5 +78,6 @@ export class AddProductComponent implements OnInit {
       }
     });
   }
+
 
 }
