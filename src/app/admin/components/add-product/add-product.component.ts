@@ -1,5 +1,6 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ThemePalette } from '@angular/material/core';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
@@ -32,6 +33,10 @@ export class AddProductComponent implements OnInit {
     this.addProduct = 'Submitting Product...';
   }
 
+  fileEvent(e: any) {
+    this.filedata = e.target.files[0];
+  }
+
   constructor(
     private fb: FormBuilder,
     public storeProduct: ProductService,
@@ -39,6 +44,7 @@ export class AddProductComponent implements OnInit {
     private toast: NgToastService,
     private categoryBrand: CategoryBrandService,
     private route: Router,
+    private http: HttpClient
   ) {}
 
   ngOnInit(): void {
@@ -65,7 +71,7 @@ export class AddProductComponent implements OnInit {
         this.toast.success({
           detail: 'Success Message',
           summary: res.message,
-          duration: 5000,
+          duration: 3000,
         });
         // this.route.navigate(['/admin/product-list']);
       } else if (res.code == 2) {
@@ -73,11 +79,44 @@ export class AddProductComponent implements OnInit {
         this.toast.error({
           detail: 'Success Message',
           summary: res.message,
-          duration: 5000,
+          duration: 3000,
         });
       }
     });
   }
 
+  storeProducts(f: NgForm) {
+    /** spinner starts on init */
+    this.spinner.show();
+    setTimeout(() => {
+      var myFormData = new FormData();
+      const headers = new HttpHeaders();
+      headers.append('Content-Type', 'multipart/form-data');
+      headers.append('Accept', 'application/json');
+      myFormData.append('images', this.filedata);
+      myFormData.append('data', JSON.stringify(this.product));
+      this.http
+        .post('http://127.0.0.1:8000/api/addProduct', myFormData, {
+          headers: headers,
+        })
+        .subscribe((data: any) => {
+          if (data.code == 1) {
+            this.toast.success({
+              detail: 'Success Message',
+              summary: data.message,
+              duration: 3000,
+            });
+            // this.route.navigate(['/admin/product-list']);
+          } else {
+            this.toast.error({
+              detail: 'Success Message',
+              summary: data.message,
+              duration: 3000,
+            });
+          }
+        });
 
+      this.spinner.hide();
+    }, 3000);
+  }
 }

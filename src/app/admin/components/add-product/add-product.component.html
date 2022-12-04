@@ -6,7 +6,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="card-title">Add Product</div>
-                        <form #productForm="ngForm" (ngSubmit)="onSubmit()">
+                        <form #f="ngForm" (ngSubmit)="storeProducts(f)">
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group">
@@ -154,7 +154,7 @@
                             <div class="form-group">
                                 <label for="input-9">Images</label>
                                 <input type="file" name="images" #images="ngModel" [(ngModel)]="product.images"
-                                    accept=".png, .jpg, .jpeg" placeholder="Enter your product description" required
+                                    accept=".png, .jpg, .jpeg" (change)="fileEvent($event)" placeholder="Enter your product description" required
                                     class="form-control form-control"
                                     [class.is-invalid]="images.invalid && (images.dirty || images.touched)" multiple="">
                                 <div *ngIf="images.invalid && (images.dirty || images.touched)"
@@ -165,7 +165,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <button type="submit" (click)="changeText()" [disabled]="!productForm.valid"
+                                <button type="submit" (click)="changeText()" [disabled]="!f.valid"
                                     class="btn btn-light btn-round px-5 float-end"><i class="icon-lock"></i>
                                     {{ addProduct }}</button>
                             </div>
