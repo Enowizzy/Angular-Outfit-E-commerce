@@ -6,7 +6,7 @@
      
         <div class="col-lg-12 mt-3">
           <div class="card">
-            <div class="card-body">
+            <div class="card-body" *ngIf="products">
               <h5 class="card-title">Product List</h5>
               <div class="table table-hover table-responsive">
                 <table class="table">
@@ -23,14 +23,14 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Cell</td>
-                      <td>Cell</td>
-                      <td>Cell</td>
-                      <td>Cell</td>
-                      <td>Cell</td>
-                      <td>Cell</td>
+                    <tr *ngFor="let product of products">
+                      <th scope="row">{{ product.name }}</th>
+                      <td>{{ product.category_id }}</td>
+                      <td>{{ product.brand_id }}</td>
+                      <td>{{ product.quantity }}</td>
+                      <td>{{ product.price }}</td>
+                      <td>{{ product.is_available }}</td>
+                      <td>{{ product.is_approved }}</td>
                       <td>Cell</td>
                     </tr>
                
