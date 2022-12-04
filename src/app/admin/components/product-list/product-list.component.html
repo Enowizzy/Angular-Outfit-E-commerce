@@ -1,52 +1,58 @@
 <lib-ng-toast></lib-ng-toast>
 <div class="content-wrapper">
     <div class="container-fluid">
-     
-      <div class="row d-flex justify-content-center align-items-center h-100">
-     
-        <div class="col-lg-12 mt-3">
-          <div class="card">
-            <div class="card-body" *ngIf="products">
-              <h5 class="card-title">Product List</h5>
-              <div class="table table-hover table-responsive">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th scope="col">Name</th>
-                      <th scope="col">Category</th>
-                      <th scope="col">Brand</th>
-                      <th scope="col">Quantity</th>
-                      <th scope="col">Selling Price</th>
-                      <th scope="col">Available</th>
-                      <th scope="col">Approved</th>
-                      <th scope="col">Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor="let product of products">
-                      <th scope="row">{{ product.name }}</th>
-                      <td>{{ product.category_id }}</td>
-                      <td>{{ product.brand_id }}</td>
-                      <td>{{ product.quantity }}</td>
-                      <td>{{ product.price }}</td>
-                      <td>{{ product.is_available }}</td>
-                      <td>{{ product.is_approved }}</td>
-                      <td>Cell</td>
-                    </tr>
-               
-                  </tbody>
-                </table>
-              </div>
+
+        <div class="row d-flex justify-content-center align-items-center h-100">
+
+            <div class="col-lg-12 mt-3">
+                <div class="card">
+                    <div class="card-body" *ngIf="products">
+                        <h5 class="card-title">Product List</h5>
+                        <div class="table table-hover table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Category</th>
+                                        <th scope="col">Brand</th>
+                                        <th scope="col">Quantity</th>
+                                        <th scope="col">Selling Price</th>
+                                        <th scope="col">Available</th>
+                                        <th scope="col">Approved</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let product of products">
+                                        <th scope="row">{{ product.name }}</th>
+                                        <td>{{ product.category_id }}</td>
+                                        <td>{{ product.brand_id }}</td>
+                                        <td>{{ product.quantity }}</td>
+                                        <td>{{ product.price }}</td>
+                                        <td>{{ product.is_available }}</td>
+                                        <td>{{ product.is_approved }}</td>
+                                        <td>
+                                            <span class="badge badge-primary"><i class="fa fa-user"></i>View</span>
+                                            <span class="badge badge-success ml-2"><i class="fa fa-cog"></i>Edit</span>
+                                            <span class="badge badge-danger ml-2"><i class="fa fa-eye"></i>Delete</span>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div><!--End Row-->
-	  
-	  <!--start overlay-->
-		  <div class="overlay toggle-menu"></div>
-		<!--end overlay-->
+        <!--End Row-->
+
+        <!--start overlay-->
+        <div class="overlay toggle-menu"></div>
+        <!--end overlay-->
 
     </div>
     <!-- End container-fluid-->
-    
-    </div><!--End content-wrapper-->
+
+</div>
+<!--End content-wrapper-->
