@@ -61,11 +61,11 @@ export class AddProductComponent implements OnInit {
   }
 
   storeProducts() {
-    // this.spinner.show();
+    this.spinner.show();
     this.storeProduct.addProduct(this.product).subscribe((res: any) => {
-      // setTimeout(() => {
-      //   this.spinner.hide();
-      // }, 1000);
+      setTimeout(() => {
+        this.spinner.hide();
+      }, 1000);
       this.productData = res;
       if (res.code == 1) {
         this.toast.success({
@@ -77,7 +77,7 @@ export class AddProductComponent implements OnInit {
       } else if (res.code == 2) {
         this.spinner.hide();
         this.toast.error({
-          detail: 'Success Message',
+          detail: 'Error Message',
           summary: res.message,
           duration: 3000,
         });
