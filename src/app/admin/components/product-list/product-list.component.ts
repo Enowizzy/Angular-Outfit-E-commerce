@@ -8,7 +8,21 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent implements OnInit {
-  constructor(private toast: NgToastService, public getProducts: ProductService,) {}
+  products: any;
+  product_list: any;
+  constructor(
+    private toast: NgToastService,
+    public getProducts: ProductService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.product_list = this.getProducts.getProducts();
+    this.productList();
+  }
+
+  productList() {
+    this.getProducts.getProducts().subscribe((list) => {
+      this.products = list;
+    });
+  }
 }
