@@ -10,10 +10,13 @@ export class ProductService {
   private API_URL = environment.API_URL;
   constructor(private _http: HttpClient) { }
 
+  handleError(error: HttpErrorResponse) {
+    return throwError(error);
+  }
   addProduct(data: any): Observable<any> {
     return this._http.post(this.API_URL + 'addProduct', data).pipe(catchError(this.handleError));
   }
-  handleError(error: HttpErrorResponse) {
-    return throwError(error);
+  getProducts() {
+    return this._http.get(this.API_URL + 'getProducts').pipe(catchError(this.handleError));
   }
 }
