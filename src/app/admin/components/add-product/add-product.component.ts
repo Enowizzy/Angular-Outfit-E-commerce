@@ -60,7 +60,7 @@ export class AddProductComponent implements OnInit {
     });
   }
 
-  onSubmit() {
+  storeProducts() {
     // this.spinner.show();
     this.storeProduct.addProduct(this.product).subscribe((res: any) => {
       // setTimeout(() => {
@@ -85,7 +85,7 @@ export class AddProductComponent implements OnInit {
     });
   }
 
-  storeProducts(f: NgForm) {
+  onSubmit(f: NgForm) {
     /** spinner starts on init */
     this.spinner.show();
     setTimeout(() => {
