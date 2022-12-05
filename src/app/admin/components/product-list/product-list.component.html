@@ -12,35 +12,54 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Category</th>
-                                        <th scope="col">Brand</th>
-                                        <th scope="col">Quantity</th>
-                                        <th scope="col">Selling Price</th>
-                                        <th scope="col">Available</th>
-                                        <th scope="col">Approved</th>
-                                        <th scope="col">Actions</th>
+                                        <th class="text-center">Name</th>
+                                        <th class="text-center">Category</th>
+                                        <th class="text-center">Brand</th>
+                                        <th class="text-center">Quantity</th>
+                                        <th class="text-center">Selling Price</th>
+                                        <th class="text-center">Available</th>
+                                        <th class="text-center">Approved</th>
+                                        <th class="text-center">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let product of products">
-                                        <th scope="row">{{ product.name }}</th>
-                                        <td>{{ product.category_id }}</td>
-                                        <td>{{ product.brand_id }}</td>
-                                        <td>{{ product.quantity }}</td>
-                                        <td>{{ product.price }}</td>
-                                        <td>{{ product.is_available }}</td>
-                                        <td>{{ product.is_approved }}</td>
-                                        <td>
-                                            <span class="badge badge-primary"><i class="fa fa-user"></i>View</span>
-                                            <span class="badge badge-success ml-2"><i class="fa fa-cog"></i>Edit</span>
-                                            <span class="badge badge-danger ml-2"><i class="fa fa-eye"></i>Delete</span>
+                                        <th class="text-center">{{ product.name }}</th>
+                                        <td class="text-center">{{ product.category_id }}</td>
+                                        <td class="text-center">{{ product.brand_id }}</td>
+                                        <td class="text-center">{{ product.quantity }}</td>
+                                        <td class="text-center">{{ product.price }}</td>
+                                        <td class="text-center">
+                                            <span class="badge badge-success ml-2" *ngIf="product.is_available == 1"><i
+                                                    class="fa fa-cog"></i>Available</span>
+                                            <span class="badge badge-danger ml-2" *ngIf="product.is_available == 0"><i
+                                                    class="fa fa-cog"></i>UnAvailable</span>
+                                        </td>
+                                        <td class="text-center">
+                                            <span class="badge badge-success ml-2" *ngIf="product.is_approved == 1"><i
+                                                    class="fa fa-cog"></i>Approved</span>
+                                            <span class="badge badge-danger ml-2" *ngIf="product.is_approved == 0"><i
+                                                    class="fa fa-cog"></i>Not Approved</span>
+                                        </td>
+                                        <td class="text-center">
+                                            <button class="btn btn-info" title="View"><i class="fa fa-eye-slash"
+                                                    aria-hidden="true"></i> View</button>
+                                            <button class="btn btn-warning ml-2" title="Edit"><i
+                                                    class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button>
+                                            <button class="btn btn-danger ml-2" title="Delete"><i class="fa fa-trash"
+                                                    aria-hidden="true"></i> Delete</button>
                                         </td>
                                     </tr>
 
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                    <div class="alert alert-danger" *ngIf="products.length <= 0;">
+                        <p><strong>Oops! No Product posted yet.</strong></p>
+                        <p>A few things might help:</p>
+                        <p>1. Make contacts <a routerLink="/admin/add-product" class="alert-link">here</a></p>
+                        <p>2. Server Error</p>
                     </div>
                 </div>
             </div>

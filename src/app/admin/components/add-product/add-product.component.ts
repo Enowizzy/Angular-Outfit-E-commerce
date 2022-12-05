@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ThemePalette } from '@angular/material/core';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
@@ -73,7 +73,7 @@ export class AddProductComponent implements OnInit {
           summary: res.message,
           duration: 3000,
         });
-        // this.route.navigate(['/admin/product-list']);
+        this.route.navigate(['/admin/product-list']);
       } else if (res.code == 2) {
         this.spinner.hide();
         this.toast.error({
@@ -85,7 +85,7 @@ export class AddProductComponent implements OnInit {
     });
   }
 
-  onSubmit(f: NgForm) {
+  onSubmit() {
     /** spinner starts on init */
     this.spinner.show();
     setTimeout(() => {
@@ -106,7 +106,7 @@ export class AddProductComponent implements OnInit {
               summary: data.message,
               duration: 3000,
             });
-            // this.route.navigate(['/admin/product-list']);
+            this.route.navigate(['/admin/product-list']);
           } else {
             this.toast.error({
               detail: 'Success Message',
