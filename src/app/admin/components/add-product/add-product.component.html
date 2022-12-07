@@ -6,7 +6,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="card-title">Add Product</div>
-                 
+
                         <form #f="ngForm" (ngSubmit)="storeProducts()">
                             <div class="row">
                                 <div class="col">
@@ -155,7 +155,8 @@
                             <div class="form-group">
                                 <label for="input-9">Images</label>
                                 <input type="file" name="images" #images="ngModel" [(ngModel)]="product.images"
-                                    accept=".png, .jpg, .jpeg" (change)="fileEvent($event)" placeholder="Enter your product description" required
+                                    accept=".png, .jpg, .jpeg" (change)="fileEvent($event)"
+                                    placeholder="Enter your product description" required
                                     class="form-control form-control"
                                     [class.is-invalid]="images.invalid && (images.dirty || images.touched)" multiple="">
                                 <div *ngIf="images.invalid && (images.dirty || images.touched)"
@@ -170,7 +171,21 @@
                                     class="btn btn-light btn-round px-5 float-end"><i class="icon-lock"></i>
                                     {{ addProduct }}</button>
                             </div>
-                        </form> 
+                        </form>
+
+                        <div class="container">
+                            <form [formGroup]="form" (ngSubmit)="submitForm()">
+                                <div class="form-group">
+                                    <input type="file" placeholder="Upload File" (change)="uploadFile($event)">
+                                </div>
+                                <div class="form-group input-group-lg">
+                                    <input class="form-control" placeholder="Name" formControlName="name">
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-danger btn-block btn-lg">Create</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

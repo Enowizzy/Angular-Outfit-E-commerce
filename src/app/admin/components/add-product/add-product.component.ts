@@ -15,6 +15,7 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./add-product.component.css'],
 })
 export class AddProductComponent implements OnInit {
+  form: FormGroup;
   addProduct = 'add product';
   color: ThemePalette = 'accent';
   checked = false;
@@ -37,6 +38,10 @@ export class AddProductComponent implements OnInit {
     this.filedata = e.target.files[0];
   }
 
+  get name() {
+    return this.form.get('name');
+  }
+
   constructor(
     private fb: FormBuilder,
     public storeProduct: ProductService,
@@ -45,7 +50,12 @@ export class AddProductComponent implements OnInit {
     private categoryBrand: CategoryBrandService,
     private route: Router,
     private http: HttpClient
-  ) {}
+  ) {
+    this.form = this.fb.group({
+      name: [''],
+      avatar: [null],
+    });
+  }
 
   ngOnInit(): void {
     this.categoryBrands = this.categoryBrand.getCategoryBrands();
@@ -119,4 +129,25 @@ export class AddProductComponent implements OnInit {
       this.spinner.hide();
     }, 3000);
   }
+
+  uploadFile(event:any) {
+    this.filedata = event.target.files[0];
+    this.form.patchValue({
+      avatar: this.filedata,
+    });
+    this.filedata.updateValueAndValidity();
+  }
+
+  submitForm() {
+    var formData: any = new FormData();
+    formData.append('name', this.name);
+    formData.append('avatar', this.filedata);
+    this.http
+      .post('http://127.0.0.1:8000/api/addProduct', formData)
+      .subscribe({
+        next: (response) => console.log(response),
+        error: (error) => console.log(error),
+      });
+  }
+  
 }
