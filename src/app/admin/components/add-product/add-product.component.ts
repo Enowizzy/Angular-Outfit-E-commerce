@@ -57,6 +57,12 @@ export class AddProductComponent implements OnInit {
     });
   }
 
+  myForm: FormGroup = new FormGroup({
+    name: new FormControl('', Validators.required),
+    avatar: new FormControl('', Validators.required),
+  });
+
+
   ngOnInit(): void {
     this.categoryBrands = this.categoryBrand.getCategoryBrands();
     this.getCategoryBrands();
