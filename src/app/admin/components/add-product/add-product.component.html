@@ -7,7 +7,7 @@
                     <div class="card-body">
                         <div class="card-title">Add Product</div>
 
-                        <form #f="ngForm" (ngSubmit)="storeProducts()">
+                        <!-- <form #f="ngForm" (ngSubmit)="storeProducts()">
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group">
@@ -171,15 +171,150 @@
                                     class="btn btn-light btn-round px-5 float-end"><i class="icon-lock"></i>
                                     {{ addProduct }}</button>
                             </div>
-                        </form>
+                        </form> -->
 
                         <div class="container">
                             <form [formGroup]="form" (ngSubmit)="submitForm()">
-                                <div class="form-group">
-                                    <input type="file" placeholder="Upload File" (change)="uploadFile($event)">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <input class="form-control form-control-rounded"
+                                                [class.is-invalid]="name?.invalid && name?.touched" placeholder="Name"
+                                                formControlName="name">
+                                            <div *ngIf="name?.invalid && (name?.dirty || name?.touched)"
+                                                class="invalid-feedback">
+                                                <div *ngIf="name?.errors?.['required']">
+                                                    This field is required.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <mat-form-field appearance="fill">
+                                                <mat-label>Select brands</mat-label>
+                                                <mat-select [(ngModel)]="product.brand_id" name="brand_id"
+                                                    formControlName="brand_id">
+                                                    <mat-option *ngFor="let brand of brand_id" [value]="brand.id">
+                                                        {{brand.name}}
+                                                    </mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="form-group input-group-lg">
-                                    <input class="form-control" placeholder="Name" formControlName="name">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="cost" class="form-label">Cost price</label>
+                                            <input type="number" id="cost" formControlName="cost"
+                                                placeholder="Enter your product cost price" required
+                                                class="form-control form-control-rounded"
+                                                [class.is-invalid]="cost?.invalid && (cost?.dirty || cost?.touched)">
+                                            <div *ngIf="cost?.invalid && (cost?.dirty || cost?.touched)"
+                                                class="invalid-feedback">
+                                                <div *ngIf="cost?.errors?.['required']">
+                                                    This field is required.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="price" class="form-label">Selling price</label>
+                                            <input type="number" id="price" formControlName="price"
+                                                placeholder="Enter your product selling price" required
+                                                class="form-control form-control-rounded"
+                                                [class.is-invalid]="price?.invalid && (price?.dirty || price?.touched)">
+                                            <div *ngIf="price?.invalid && (price?.dirty || price?.touched)"
+                                                class="invalid-feedback">
+                                                <div *ngIf="price?.errors?.['required']">
+                                                    This field is required.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>Select Category</mat-label>
+                                            <mat-select [(ngModel)]="product.category_id" name="category_id"
+                                                formControlName="category_id">
+                                                <mat-option *ngFor="let category of category_id" [value]="category.id">
+                                                    {{category.name}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col">
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>Select SubCategory</mat-label>
+                                            <mat-select [(ngModel)]="product.sub_category_id"
+                                                formControlName="sub_category_id" name="sub_category_id">
+                                                <mat-option *ngFor="let sub_category of sub_category_id"
+                                                    [value]="sub_category.id">
+                                                    {{sub_category.name}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="quantity" class="form-label">Quantity</label>
+                                            <input type="number" id="quantity" formControlName="quantity"
+                                                placeholder="Enter your product quantity" required minlength="3"
+                                                maxlength="50" class="form-control form-control-rounded"
+                                                [class.is-invalid]="quantity?.invalid && (quantity?.dirty || quantity?.touched)">
+                                            <div *ngIf="quantity?.invalid && (quantity?.dirty || quantity?.touched)"
+                                                class="invalid-feedback">
+                                                <div *ngIf="quantity?.errors?.['required']">
+                                                    This field is required.
+                                                </div>
+                                                <div *ngIf="quantity?.errors?.['minlength']">
+                                                    This field must have at least 3 character.
+                                                </div>
+                                                <div *ngIf="quantity?.errors?.['maxlength']">
+                                                    This field must have at most 50 characters.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <mat-slide-toggle class="example-margin mt-4" [color]="color"
+                                            formControlName="is_available" [checked]="checked" [disabled]="disabled"
+                                            value="1">
+                                            Available.
+                                        </mat-slide-toggle>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label for="description" class="form-label">Description</label>
+                                        <textarea type="text" id="description" formControlName="description"
+                                            placeholder="Enter your product description" required minlength="3"
+                                            maxlength="50" class="form-control form-control"
+                                            [class.is-invalid]="description?.invalid && (description?.dirty || description?.touched)"></textarea>
+                                        <div *ngIf="description?.invalid && (description?.dirty || description?.touched)"
+                                            class="invalid-feedback">
+                                            <div *ngIf="description?.errors?.['required']">
+                                                This field is required.
+                                            </div>
+                                            <div *ngIf="description?.errors?.['minlength']">
+                                                This field must have at least 3 character.
+                                            </div>
+                                            <div *ngIf="description?.errors?.['maxlength']">
+                                                This field must have at most 50 characters.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <input type="file" placeholder="Upload File" (change)="uploadFile($event)">
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-danger btn-block btn-lg">Create</button>

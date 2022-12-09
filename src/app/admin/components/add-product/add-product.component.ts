@@ -15,20 +15,20 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./add-product.component.css'],
 })
 export class AddProductComponent implements OnInit {
-  form: FormGroup;
   addProduct = 'add product';
   color: ThemePalette = 'accent';
   checked = false;
   disabled = false;
   selectedValue: string = '';
   categoryBrands: any;
-  brands: any;
-  sub_categories: any;
-  categories: any;
+  brand_id: any;
+  sub_category_id: any;
+  category_id: any;
   product = new Product();
   productData: any;
   target: string = '';
   filedata: any;
+  form:any;
 
   changeText() {
     this.addProduct = 'Submitting Product...';
@@ -41,6 +41,21 @@ export class AddProductComponent implements OnInit {
   get name() {
     return this.form.get('name');
   }
+  get cost() {
+    return this.form.get('cost');
+  }
+  get price() {
+    return this.form.get('price');
+  }
+  get quantity() {
+    return this.form.get('quantity');
+  }
+  get is_available() {
+    return this.form.get('is_available');
+  }
+  get description() {
+    return this.form.get('description');
+  }
 
   constructor(
     private fb: FormBuilder,
@@ -52,16 +67,18 @@ export class AddProductComponent implements OnInit {
     private http: HttpClient
   ) {
     this.form = this.fb.group({
-      name: [''],
-      avatar: [null],
-    });
+      name: ['', Validators.required],
+      cost: ['', Validators.required],
+      price: ['', Validators.required],
+      brand_id: ['', Validators.required],
+      quantity: ['', Validators.required],
+      category_id: ['', Validators.required],
+      description: ['', Validators.required],
+      is_available: ['', Validators.required],
+      sub_category_id: ['', Validators.required],
+      avatar: [null]
+    })
   }
-
-  myForm: FormGroup = new FormGroup({
-    name: new FormControl('', Validators.required),
-    avatar: new FormControl('', Validators.required),
-  });
-
 
   ngOnInit(): void {
     this.categoryBrands = this.categoryBrand.getCategoryBrands();
@@ -70,9 +87,9 @@ export class AddProductComponent implements OnInit {
 
   getCategoryBrands() {
     this.categoryBrand.getCategoryBrands().subscribe((res) => {
-      this.brands = res.brand;
-      this.categories = res.category;
-      this.sub_categories = res.sub_category;
+      this.brand_id = res.brand;
+      this.category_id = res.category;
+      this.sub_category_id = res.sub_category;
     });
   }
 
@@ -101,53 +118,25 @@ export class AddProductComponent implements OnInit {
     });
   }
 
-  onSubmit() {
-    /** spinner starts on init */
-    this.spinner.show();
-    setTimeout(() => {
-      var myFormData = new FormData();
-      const headers = new HttpHeaders();
-      headers.append('Content-Type', 'multipart/form-data');
-      headers.append('Accept', 'application/json');
-      myFormData.append('images', this.filedata);
-      myFormData.append('data', JSON.stringify(this.product));
-      this.http
-        .post('http://127.0.0.1:8000/api/addProduct', myFormData, {
-          headers: headers,
-        })
-        .subscribe((data: any) => {
-          if (data.code == 1) {
-            this.toast.success({
-              detail: 'Success Message',
-              summary: data.message,
-              duration: 3000,
-            });
-            this.route.navigate(['/admin/product-list']);
-          } else {
-            this.toast.error({
-              detail: 'Success Message',
-              summary: data.message,
-              duration: 3000,
-            });
-          }
-        });
-
-      this.spinner.hide();
-    }, 3000);
-  }
-
   uploadFile(event:any) {
     this.filedata = event.target.files[0];
     this.form.patchValue({
       avatar: this.filedata,
     });
-    this.filedata.updateValueAndValidity();
   }
 
   submitForm() {
     var formData: any = new FormData();
-    formData.append('name', this.name);
-    formData.append('avatar', this.filedata);
+    formData.append('name', this.name.value);
+    formData.append('images', this.filedata);
+    formData.append('cost', this.cost.value);
+    formData.append('price', this.price.value);
+    formData.append('quantity', this.quantity.value);
+    formData.append('is_available', this.is_available.value);
+    formData.append('description', this.description.value);
+    formData.append('brand_id', this.form.get('brand_id').value);
+    formData.append('category_id', this.form.get('category_id').value);
+    formData.append('sub_category_id',this.form.get('sub_category_id').value);
     this.http
       .post('http://127.0.0.1:8000/api/addProduct', formData)
       .subscribe({
