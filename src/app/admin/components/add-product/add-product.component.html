@@ -186,6 +186,9 @@
                                                 <div *ngIf="name?.errors?.['required']">
                                                     This field is required.
                                                 </div>
+                                                <div *ngIf="name?.hasError('minlength')" class="text-danger"
+                                                >Name must be at least 3 characters</div
+                                              >
                                             </div>
                                         </div>
                                     </div>

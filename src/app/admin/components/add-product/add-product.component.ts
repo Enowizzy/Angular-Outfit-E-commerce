@@ -73,13 +73,13 @@ export class AddProductComponent implements OnInit {
     private http: HttpClient
   ) {
     this.form = this.fb.group({
-      name: ['', Validators.required, Validators.minLength(3)],
-      cost: ['', Validators.required, Validators.pattern('^[0-9]*$')],
-      price: ['', Validators.required, Validators.pattern('^[0-9]*$')],
+      name: ['', [Validators.required, Validators.minLength(3)]],
+      cost: ['',[ Validators.required, Validators.pattern('^[0-9]*$')]],
+      price: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
       brand_id: ['', Validators.required],
-      quantity: ['', Validators.required, Validators.pattern('^[0-9]*$')],
+      quantity: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
       category_id: ['', Validators.required],
-      description: ['', Validators.required, Validators.minLength(10)],
+      description: ['', [Validators.required, Validators.minLength(10)]],
       is_available: ['', Validators.required],
       sub_category_id: ['', Validators.required],
       avatar: [null],
