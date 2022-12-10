@@ -97,9 +97,9 @@ export class AddProductComponent implements OnInit {
           Validators.maxLength(50),
         ],
       ],
-      is_available: ['', Validators.required],
+      is_available: [''],
       sub_category_id: ['', Validators.required],
-      avatar: [null],
+      avatar: ['',  Validators.required],
     });
   }
 
@@ -150,7 +150,6 @@ export class AddProductComponent implements OnInit {
 
   submitForm() {
     this.spinner.show();
-    setTimeout(() => {
     var formData: any = new FormData();
     formData.append('name', this.name.value);
     formData.append('images', this.filedata);
@@ -162,11 +161,26 @@ export class AddProductComponent implements OnInit {
     formData.append('brand_id', this.form.get('brand_id').value);
     formData.append('category_id', this.form.get('category_id').value);
     formData.append('sub_category_id', this.form.get('sub_category_id').value);
-    this.http.post(this.API_URL + 'addProduct', formData).subscribe({
-      next: (response) => console.log(response),
-      error: (error) => console.log(error),
+    this.http.post(this.API_URL + 'addProduct', formData).subscribe((res: any) => {
+      setTimeout(() => {
+        this.spinner.hide();
+      }, 1000);
+      if (res.code == 1) {
+        this.toast.success({
+          detail: 'Success Message',
+          summary: res.message,
+          duration: 3000,
+        });
+        this.route.navigate(['/admin/product-list']);
+      } else if (res.code == 2) {
+        this.spinner.hide();
+        this.toast.error({
+          detail: 'Error Message',
+          summary: res.message,
+          duration: 3000,
+        });
+      }
     });
-    this.spinner.hide();
-  }, 3000);
+   
   }
 }
