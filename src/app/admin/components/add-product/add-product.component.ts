@@ -14,6 +14,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { Product } from 'src/app/models/product';
 import { CategoryBrandService } from 'src/app/services/category-brand.service';
 import { ProductService } from 'src/app/services/product.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-add-product',
@@ -21,6 +22,7 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./add-product.component.css'],
 })
 export class AddProductComponent implements OnInit {
+  private API_URL = environment.API_URL;
   addProduct = 'add product';
   color: ThemePalette = 'accent';
   checked = false;
@@ -160,7 +162,7 @@ export class AddProductComponent implements OnInit {
     formData.append('brand_id', this.form.get('brand_id').value);
     formData.append('category_id', this.form.get('category_id').value);
     formData.append('sub_category_id', this.form.get('sub_category_id').value);
-    this.http.post('http://127.0.0.1:8000/api/addProduct', formData).subscribe({
+    this.http.post(this.API_URL + 'addProduct', formData).subscribe({
       next: (response) => console.log(response),
       error: (error) => console.log(error),
     });
