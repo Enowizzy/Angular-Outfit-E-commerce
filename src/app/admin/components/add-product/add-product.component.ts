@@ -147,6 +147,8 @@ export class AddProductComponent implements OnInit {
   }
 
   submitForm() {
+    this.spinner.show();
+    setTimeout(() => {
     var formData: any = new FormData();
     formData.append('name', this.name.value);
     formData.append('images', this.filedata);
@@ -162,5 +164,7 @@ export class AddProductComponent implements OnInit {
       next: (response) => console.log(response),
       error: (error) => console.log(error),
     });
+    this.spinner.hide();
+  }, 3000);
   }
 }
