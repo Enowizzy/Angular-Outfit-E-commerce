@@ -74,12 +74,27 @@ export class AddProductComponent implements OnInit {
   ) {
     this.form = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
-      cost: ['',[ Validators.required, Validators.pattern('^[0-9]*$')]],
+      cost: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
       price: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
       brand_id: ['', Validators.required],
-      quantity: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
+      quantity: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(7),
+          Validators.pattern('^[0-9]*$'),
+        ],
+      ],
       category_id: ['', Validators.required],
-      description: ['', [Validators.required, Validators.minLength(10)]],
+      description: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(10),
+          Validators.maxLength(50),
+        ],
+      ],
       is_available: ['', Validators.required],
       sub_category_id: ['', Validators.required],
       avatar: [null],
