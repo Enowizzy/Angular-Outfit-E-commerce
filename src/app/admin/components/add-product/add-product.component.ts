@@ -1,6 +1,12 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  NgForm,
+  Validators,
+} from '@angular/forms';
 import { ThemePalette } from '@angular/material/core';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
@@ -28,7 +34,7 @@ export class AddProductComponent implements OnInit {
   productData: any;
   target: string = '';
   filedata: any;
-  form:any;
+  form: any;
 
   changeText() {
     this.addProduct = 'Submitting Product...';
@@ -67,17 +73,17 @@ export class AddProductComponent implements OnInit {
     private http: HttpClient
   ) {
     this.form = this.fb.group({
-      name: ['', Validators.required],
-      cost: ['', Validators.required],
-      price: ['', Validators.required],
+      name: ['', Validators.required, Validators.minLength(3)],
+      cost: ['', Validators.required, Validators.pattern('^[0-9]*$')],
+      price: ['', Validators.required, Validators.pattern('^[0-9]*$')],
       brand_id: ['', Validators.required],
-      quantity: ['', Validators.required],
+      quantity: ['', Validators.required, Validators.pattern('^[0-9]*$')],
       category_id: ['', Validators.required],
-      description: ['', Validators.required],
+      description: ['', Validators.required, Validators.minLength(10)],
       is_available: ['', Validators.required],
       sub_category_id: ['', Validators.required],
-      avatar: [null]
-    })
+      avatar: [null],
+    });
   }
 
   ngOnInit(): void {
@@ -118,7 +124,7 @@ export class AddProductComponent implements OnInit {
     });
   }
 
-  uploadFile(event:any) {
+  uploadFile(event: any) {
     this.filedata = event.target.files[0];
     this.form.patchValue({
       avatar: this.filedata,
@@ -136,13 +142,10 @@ export class AddProductComponent implements OnInit {
     formData.append('description', this.description.value);
     formData.append('brand_id', this.form.get('brand_id').value);
     formData.append('category_id', this.form.get('category_id').value);
-    formData.append('sub_category_id',this.form.get('sub_category_id').value);
-    this.http
-      .post('http://127.0.0.1:8000/api/addProduct', formData)
-      .subscribe({
-        next: (response) => console.log(response),
-        error: (error) => console.log(error),
-      });
+    formData.append('sub_category_id', this.form.get('sub_category_id').value);
+    this.http.post('http://127.0.0.1:8000/api/addProduct', formData).subscribe({
+      next: (response) => console.log(response),
+      error: (error) => console.log(error),
+    });
   }
-  
 }
