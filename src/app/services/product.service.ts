@@ -19,4 +19,7 @@ export class ProductService {
   getProducts() {
     return this._http.get(this.API_URL + 'getProducts').pipe(catchError(this.handleError));
   }
+  deleteProduct(id:number) {
+    return this._http.get(this.API_URL + 'deleteProduct/' +id).pipe(catchError(this.handleError));
+  }
 }

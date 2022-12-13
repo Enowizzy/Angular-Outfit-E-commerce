@@ -23,6 +23,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ProductListComponent } from './components/product-list/product-list.component';
+import { MatConfirmDialogComponent } from './components/mat-confirm-dialog/mat-confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ProductListComponent } from './components/product-list/product-list.com
     RightSidebarComponent,
     AdminFooterComponent,
     AddProductComponent,
-    ProductListComponent
+    ProductListComponent,
+    MatConfirmDialogComponent
   ],
   imports: [
     FormsModule,
@@ -55,6 +57,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [AuthGuard],
-  bootstrap: [AdminComponent]
+  bootstrap: [AdminComponent],
+  entryComponents: [ProductListComponent,MatConfirmDialogComponent]
 })
 export class AdminModule { }
