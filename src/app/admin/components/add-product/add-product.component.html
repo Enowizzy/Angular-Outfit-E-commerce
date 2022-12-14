@@ -327,7 +327,7 @@
                                 </div>
                                 <div class="form-group">
                                     <button type="button" (click)="onReset()" class="btn btn-danger">Clear</button>
-                                    <button type="submit" [disabled]="form.invalid"
+                                    <button type="submit" (click)="changeText()" [disabled]="form.invalid"
                                         class="btn btn-danger float-end">{{ addProduct }}</button>
                                 </div>
                             </form>
