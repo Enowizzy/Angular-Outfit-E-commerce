@@ -181,6 +181,9 @@ export class AddProductComponent implements OnInit {
         });
       }
     });
-   
+    this.form.reset();
+  }
+  onReset(){
+    this.form.reset();
   }
 }
