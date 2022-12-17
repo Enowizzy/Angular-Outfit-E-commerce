@@ -30,19 +30,23 @@ export class ProductListComponent implements OnInit {
     this._dialogService
       .openConfirmDialog('Are you sure you want to delete this item ?')
       .afterClosed()
-      .subscribe((res:any) => {
-        this.productList();
-        if (res.code == 1) {
-          this.toast.success({
-            detail: 'Success Message',
-            summary: res.message,
-            duration: 3000,
-          });
-        } else if (res.code == 2) {
-          this.toast.error({
-            detail: 'Error Message',
-            summary: res.message,
-            duration: 3000,
+      .subscribe((res) => {
+        if (res) {
+          this.productService.deleteProduct(id).subscribe((_res: any) => {
+            this.productList();
+            if (_res == 1) {
+              this.toast.success({
+                detail: 'Success Message',
+                summary: 'Product deleted successful',
+                duration: 3000,
+              });
+            } else {
+              this.toast.error({
+                detail: 'Error Message',
+                summary: 'Error occurred please try again later',
+                duration: 3000,
+              });
+            }
           });
         }
       });
