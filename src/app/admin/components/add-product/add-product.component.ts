@@ -37,6 +37,7 @@ export class AddProductComponent implements OnInit {
   target: string = '';
   filedata: any;
   form: any;
+  imageURL: string = '';
 
   changeText() {
     this.addProduct = 'Submitting Product...';
@@ -146,6 +147,13 @@ export class AddProductComponent implements OnInit {
     this.form.patchValue({
       avatar: this.filedata,
     });
+    this.form.get('avatar').updateValueAndValidity()
+    //Todo File Preview
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imageURL = reader.result as string;
+    }
+    reader.readAsDataURL(this.filedata)
   }
 
   submitForm() {

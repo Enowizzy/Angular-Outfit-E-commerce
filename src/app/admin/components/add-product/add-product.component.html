@@ -3,7 +3,7 @@
 <div class="content-wrapper align-items-center justify-content-center">
     <div class="container-fluid">
         <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-lg-6 mt-2">
+            <div class="col-lg-7 mt-2">
                 <div class="card">
                     <div class="card-body">
                         <div class="card-title">Add Product</div>
@@ -325,6 +325,11 @@
                                             (change)="uploadFile($event)">
                                     </div>
                                 </div>
+                                <!-- Image Preview -->
+                                <div class="imagePreview" *ngIf="imageURL && imageURL !== ''">
+                                    <img [src]="imageURL" [alt]="form.value.name" style="height: 100px; width: 100px;">
+                                </div>
+                                <!-- Assign Image Alt -->
                                 <div class="form-group">
                                     <button type="button" (click)="onReset()" class="btn btn-danger">Clear</button>
                                     <button type="submit" (click)="changeText()" [disabled]="form.invalid"
